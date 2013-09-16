@@ -12,10 +12,12 @@
 </header>
 
 <div id="posts-filter">
-  <div class="wrapper clearfix">
-    <ul>
-      <li><a href="#" class="current">Fresh</a></li>
-      <li><a href="#">Popular</a></li>
-    </ul>
-  </div>
+  <?php if ($controller_name == 'posts' && $action_name == 'index'): ?>
+    <div class="wrapper clearfix">
+      <ul>
+        <li><a href="#" class="current">Fresh</a></li>
+        <li><a href="#">Popular</a></li>
+      </ul>
+    </div>
+  <?php endif; ?>
 </div>
