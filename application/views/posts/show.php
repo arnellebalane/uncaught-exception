@@ -5,7 +5,7 @@
   <title>Uncaught Exception</title>
 </head>
 
-<body class="posts show">
+<body class="<?= $controller_name . ' ' . $action_name; ?>">
   <div id="main-wrapper">
     <?php $this->load->view('partials/header'); ?>
 
@@ -40,38 +40,19 @@
             </div>
 
             <section id="comments">
-              <div class="comment">
-                <header class="clearfix">
-                  <?= profile_picture('profile-picture.png'); ?>
-                  <h4>Arnelle Balane</h4>
-                </header>
+              <?php $counter = 3; ?>
+              <?php while ($counter-- > 0): ?>
+                <div class="comment">
+                  <header class="clearfix">
+                    <?= profile_picture('profile-picture.png'); ?>
+                    <h4>Arnelle Balane</h4>
+                  </header>
 
-                <div class="comment-body">
-                  <p>Suspendisse ut commodo neque, nec consectetur dolor. Aliquam urna nibh, pellentesque lobortis nunc eget, lacinia blandit quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce semper interdum enim vel ornare.</p>
+                  <div class="comment-body">
+                    <p>Suspendisse ut commodo neque, nec consectetur dolor. Aliquam urna nibh, pellentesque lobortis nunc eget, lacinia blandit quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce semper interdum enim vel ornare.</p>
+                  </div>
                 </div>
-              </div>
-
-              <div class="comment">
-                <header class="clearfix">
-                  <?= profile_picture('profile-picture.png'); ?>
-                  <h4>Arnelle Balane</h4>
-                </header>
-
-                <div class="comment-body">
-                  <p>Suspendisse ut commodo neque, nec consectetur dolor. Aliquam urna nibh, pellentesque lobortis nunc eget, lacinia blandit quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce semper interdum enim vel ornare. Aliquam id vehicula neque. Nam in nibh dolor. Suspendisse ut commodo neque, nec consectetur dolor. Aliquam urna nibh, pellentesque lobortis nunc eget, lacinia blandit quam. Vestibulum ante ipsum primis in faucibus orci luctus.</p>
-                </div>
-              </div>
-
-              <div class="comment">
-                <header class="clearfix">
-                  <?= profile_picture('profile-picture.png'); ?>
-                  <h4>Arnelle Balane</h4>
-                </header>
-
-                <div class="comment-body">
-                  <p>Suspendisse ut commodo neque, nec consectetur dolor. Aliquam urna nibh, pellentesque lobortis nunc eget, lacinia blandit quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce semper interdum enim vel ornare. Aliquam id vehicula neque. Nam in nibh dolor.</p>
-                </div>
-              </div>
+              <?php endwhile; ?>
             </section>
 
             <section id="comment-form">

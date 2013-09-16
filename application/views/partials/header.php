@@ -4,8 +4,8 @@
 
     <nav>
       <ul>
-        <li><a href="#" class="current">Blog</a></li>
-        <li><a href="#">Screencasts</a></li>
+        <li><?= anchor('posts/index', 'Blog', array('class' => 'current')) ?></li>
+        <li><?= anchor('#', 'Screencasts') ?></li>
       </ul>
     </nav>
   </div>

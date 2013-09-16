@@ -51,4 +51,306 @@
 
 .post {
   margin-top: 50px;
+
+  .content {
+    float: left;
+    width: 700px;
+    background-color: #ffffff;
+    .box-sizing(border-box);
+  }
+
+  aside {
+    float: right;
+    width: 300px;
+    background-color: #333333;
+    .box-sizing(border-box);
+  }
+}
+
+.posts.show {
+  .content > header {
+    margin-bottom: 30px;
+    padding: 50px 50px 0 50px;
+
+    h1 {
+      font: normal 3.2rem "Open Sans Light";
+      color: #333333;
+      padding-right: 25px;
+      word-wrap: break-word;
+    }
+  }
+
+  #tags {
+    float: left;
+    width: 450px;
+    margin-top: 30px;
+
+    a {
+      display: inline-block;
+      color: #333333;
+      padding: 3px 7px;
+      margin-bottom: 3px;
+      border-radius: 2px;
+      background-color: #DFE3E7;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.15);
+
+      &:hover, &:focus {
+        background-color: #BFCBD1;
+      }
+    }
+  }
+
+  #post-stats {
+    float: right;
+    margin-top: 23px;
+
+    li {
+      display: inline-block;
+      margin-left: 5px;
+    }
+
+    .stat {
+      display: inline-block;
+      vertical-align: top;
+      width: 30px;
+      height: 30px;
+      overflow: hidden;
+      border: 4px solid rgba(200, 200, 200, 0.2);
+      border-radius: 50%;
+      background: #DFE3E7 no-repeat;
+      background-position: center center;
+      background-clip: content-box;
+
+      &:hover, &:focus {
+        background-color: #BFCBD1;
+      }
+
+      &#post-likes {
+        background-image: url("../images/like.png");
+        background-size: 75% 75%;
+      }
+
+      &#post-comments {
+        background-image: url("../images/comment.png");
+        background-size: 60% 60%;
+      }
+
+      &#post-shares {
+        background-image: url("../images/share.png");
+        background-size: 60% 60%;
+        background-position: 5px 6px;
+      }
+    }
+  }
+
+  #post-body {
+    font: normal 1.4rem "Open Sans";
+    color: #333333;
+    padding: 0 50px 50px 50px;
+
+    p {
+      margin: 20px 0;
+    }
+  }
+
+  #comments {
+    padding: 50px;
+    background-color: #E3E8EB;
+
+    .comment {
+      margin-top: 30px;
+
+      &:first-of-type {
+        margin: 0;
+      }
+
+      .profile-picture {
+        float: left;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        z-index: 1;
+      }
+
+      h4 {
+        float: left;
+        font: bold 1.1rem "Open Sans";
+        color: #333333;
+        text-transform: uppercase;
+        margin: 5px 0 0 -15px;
+        padding: 2px 10px 2px 20px;
+        background-color: #BCC5CD;
+        .border-top-right-radius(10px);
+        .border-bottom-right-radius(10px);
+      }
+
+      .comment-body {
+        padding: 0 13px;
+        margin-top:  5px;
+
+        p {
+          font: normal 1.3rem "Open Sans";
+          color: #333333;
+        }
+      }
+
+
+    }
+  }
+
+  #comment-form {
+    padding: 50px;
+    background-color: #C1CCD3;
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: -15px;
+      left: 50px;
+      width: 30px;
+      height: 50px;
+      background: #7D8E9D url("../images/comments.png") center center no-repeat;
+      background-size: 50% auto;
+    }
+
+    input[type="text"], input[type="email"], textarea {
+      border: 1px solid #7D8E9D;
+      background-color: #ffffff;
+      .box-sizing(border-box);
+
+      &:focus {
+        border-color: #546370;
+      }
+    }
+
+    input {
+      &[type="text"], &[type="email"] {
+        width: 298px;
+        padding-left: 28px;
+        background-size: auto 80%;
+        background-position: 3px center;
+        background-repeat: no-repeat; 
+      }
+
+      &[type="text"] { background-image: url("../images/user.png"); }
+      &[type="email"] { background-image: url("../images/email.png"); }
+
+      &[type="submit"] {
+        display: block;
+        width: 300px;
+        font: bold 1.1rem "Open Sans";
+        color: #ffffff;
+        text-transform: uppercase;
+        padding: 5px 7px;
+        border: 1px solid #555555;
+        background-color: #555555;
+        border-radius: 3px;
+        cursor: pointer;
+        margin: 0 auto;
+
+        &:hover, &:focus {
+          border-color: #4c4c4c;
+          background-color: #4c4c4c;
+        }
+      }
+    }
+
+    textarea {
+      display: block;
+      width: 100%;
+      height: 96px;
+      padding: 10px;
+    }
+  }
+
+  #author-profile {
+    background-color: #222222;
+    padding: 42px 20px 50px 20px;
+    position: relative;
+
+    .profile-picture {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(200, 200, 200, 0.2);
+      background-clip: content-box;
+      position: absolute;
+      left: -30px;
+      z-index: 0;
+    }
+
+    p {
+      font: normal 1.4rem "Open Sans";
+    }
+
+    #name {
+      display: inline-block;
+      font: bold 1.5rem "Open Sans";
+      color: #aaaaaa;
+      text-transform: uppercase;
+      background-color: #434343;
+      padding: 6px 20px 6px 10px;
+      margin: 14px 0 0 5px;
+      position: relative;
+      z-index: 1;
+      .border-top-right-radius(15px);
+      .border-bottom-right-radius(15px);
+
+      &:hover, &:focus {
+        color: #dddddd;
+      }
+    }
+
+    .social-links {
+      margin: 5px 0 0 5px;
+
+      li {
+        display: block;
+        margin-bottom: -5px;
+
+        a {
+          color: #aaaaaa;
+
+          &:hover, &:focus {
+            color: #dddddd;
+          }
+        }
+
+        span {
+          display: inline-block;
+        }
+
+        p {
+          display: inline-block;
+          vertical-align: top;
+          margin-top: 5px;
+          font-family: "Open Sans Light";
+        }
+      }
+    }
+  }
+
+  #related-posts {
+    padding: 25px;
+
+    h3 {
+      font: bold 1.2rem "Open Sans";
+      color: #aaaaaa;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    a {
+      display: block;
+      color: #aaaaaa;
+      margin-bottom: 5px;
+      padding: 5px 10px;
+      background-color: #434343;
+      border-radius: 3px;
+
+      &:hover, &:focus {
+        background-color: #4a4a4a;
+      }
+    }
+  }
 }
