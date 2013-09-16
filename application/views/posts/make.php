@@ -13,11 +13,26 @@
       <div class="wrapper clearfix">
         <div class="post clearfix">
           <div class="content">
-            
+            <form action="#" method="POST">
+              <div class="field">
+                <input type="text" name="title" placeholder="Title" autocomplete="off" spellcheck="false" />
+              </div>
+              <div class="field">
+                <textarea name="content" placeholder="" spellcheck="false"></textarea>
+              </div>
+              <div class="field">
+                <input type="text" name="tags" placeholder="Tags (comma-separated)" autocomplete="off" spellcheck="false" />
+              </div>
+              <div class="field">
+                <input type="submit" value="Publish Post" />
+              </div>
+            </form>
           </div>
 
           <aside>
-            
+            <h3>Formatting Guide</h3>
+            <p>**bold**</p>
+            <p>__italic__</p>
           </aside>
         </div>
       </div>
