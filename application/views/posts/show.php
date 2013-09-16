@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include "partials/head.php"; ?>
+  <?php $this->load->view('partials/head'); ?>
   <title>Uncaught Exception</title>
 </head>
 
 <body class="posts show">
   <div id="main-wrapper">
-    <?php include "partials/header.php"; ?>
+    <?php $this->load->view('partials/header'); ?>
 
     <div id="content-area">
       <div class="wrapper clearfix">
@@ -42,7 +42,7 @@
             <section id="comments">
               <div class="comment">
                 <header class="clearfix">
-                  <span class="profile-picture" style="background-image: url('images/profile-picture.png')"></span>
+                  <?= profile_picture('profile-picture.png'); ?>
                   <h4>Arnelle Balane</h4>
                 </header>
 
@@ -53,7 +53,7 @@
 
               <div class="comment">
                 <header class="clearfix">
-                  <span class="profile-picture" style="background-image: url('images/profile-picture.png')"></span>
+                  <?= profile_picture('profile-picture.png'); ?>
                   <h4>Arnelle Balane</h4>
                 </header>
 
@@ -64,7 +64,7 @@
 
               <div class="comment">
                 <header class="clearfix">
-                  <span class="profile-picture" style="background-image: url('images/profile-picture.png')"></span>
+                  <?= profile_picture('profile-picture.png'); ?>
                   <h4>Arnelle Balane</h4>
                 </header>
 
@@ -94,7 +94,7 @@
 
           <aside>
             <section id="author-profile">
-              <span class="profile-picture" style="background-image: url('images/profile-picture.png')"></span>
+              <?= profile_picture('profile-picture.png'); ?>
               <a href="#" id="name">Arnelle Balane</a>
               <ul class="social-links">
                 <li>
@@ -132,6 +132,6 @@
     <div id="footer-placeholder"></div>
   </div>
 
-  <?php include "partials/footer.php"; ?>
+  <?php $this->load->view('partials/footer'); ?>
 </body>
 </html>

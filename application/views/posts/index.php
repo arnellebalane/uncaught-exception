@@ -13,72 +13,72 @@
       <div class="wrapper">
         <div class="posts-list clearfix">
           <div class="post-thumbnail">
-            <a href="#" class="title">Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit</a>
+            <?= anchor('posts/show', 'Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit', array('class' => 'title')); ?>
             <footer>
-              <span class="profile-picture" style="background-image: url('images/profile-picture.png')"></span>
+              <?= profile_picture('profile-picture.png'); ?>
               <a href="#">Arnelle Balane</a>
               <time>September 12, 2013</time>
             </footer>
           </div>
 
           <div class="post-thumbnail">
-            <a href="#" class="title">Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit</a>
+            <?= anchor('posts/show', 'Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit', array('class' => 'title')); ?>
             <footer>
-              <span class="profile-picture" style="background-image: url('images/profile-picture.png')"></span>
+              <?= profile_picture('profile-picture.png'); ?>
               <a href="#">Arnelle Balane</a>
               <time>September 12, 2013</time>
             </footer>
           </div>
 
           <div class="post-thumbnail">
-            <a href="#" class="title">Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit</a>
+            <?= anchor('posts/show', 'Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit', array('class' => 'title')); ?>
             <footer>
-              <span class="profile-picture" style="background-image: url('images/profile-picture.png')"></span>
+              <?= profile_picture('profile-picture.png'); ?>
               <a href="#">Arnelle Balane</a>
               <time>September 12, 2013</time>
             </footer>
           </div>
 
           <div class="post-thumbnail">
-            <a href="#" class="title">Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit</a>
+            <?= anchor('posts/show', 'Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit', array('class' => 'title')); ?>
             <footer>
-              <span class="profile-picture" style="background-image: url('images/profile-picture.png')"></span>
+              <?= profile_picture('profile-picture.png'); ?>
               <a href="#">Arnelle Balane</a>
               <time>September 12, 2013</time>
             </footer>
           </div>
 
           <div class="post-thumbnail">
-            <a href="#" class="title">Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit</a>
+            <?= anchor('posts/show', 'Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit', array('class' => 'title')); ?>
             <footer>
-              <span class="profile-picture" style="background-image: url('images/profile-picture.png')"></span>
+              <?= profile_picture('profile-picture.png'); ?>
               <a href="#">Arnelle Balane</a>
               <time>September 12, 2013</time>
             </footer>
           </div>
 
           <div class="post-thumbnail">
-            <a href="#" class="title">Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit</a>
+            <?= anchor('posts/show', 'Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit', array('class' => 'title')); ?>
             <footer>
-              <span class="profile-picture" style="background-image: url('images/profile-picture.png')"></span>
+              <?= profile_picture('profile-picture.png'); ?>
               <a href="#">Arnelle Balane</a>
               <time>September 12, 2013</time>
             </footer>
           </div>
 
           <div class="post-thumbnail">
-            <a href="#" class="title">Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit</a>
+            <?= anchor('posts/show', 'Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit', array('class' => 'title')); ?>
             <footer>
-              <span class="profile-picture" style="background-image: url('images/profile-picture.png')"></span>
+              <?= profile_picture('profile-picture.png'); ?>
               <a href="#">Arnelle Balane</a>
               <time>September 12, 2013</time>
             </footer>
           </div>
 
           <div class="post-thumbnail">
-            <a href="#" class="title">Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit</a>
+            <?= anchor('posts/show', 'Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit', array('class' => 'title')); ?>
             <footer>
-              <span class="profile-picture" style="background-image: url('images/profile-picture.png')"></span>
+              <?= profile_picture('profile-picture.png'); ?>
               <a href="#">Arnelle Balane</a>
               <time>September 12, 2013</time>
             </footer>
