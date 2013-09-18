@@ -4,15 +4,15 @@
 
     <nav>
       <ul>
-        <li><?= anchor('posts/index', 'Blog', array('class' => 'current')) ?></li>
-        <li><?= anchor('#', 'Screencasts') ?></li>
+        <li><?= anchor('posts/index', 'Blog', array('class' => navigation_link_class('posts', $controller_name))) ?></li>
+        <li><?= anchor('screencasts/index', 'Screencasts', array('class' => navigation_link_class('screencasts', $controller_name))) ?></li>
       </ul>
     </nav>
   </div>
 </header>
 
 <div id="posts-filter">
-  <?php if ($controller_name == 'posts' && $action_name == 'index'): ?>
+  <?php if (($controller_name == 'posts' && $action_name == 'index') || ($controller_name == 'screencasts' && $action_name == 'index')): ?>
     <div class="wrapper clearfix">
       <ul>
         <li><a href="#" class="current">Fresh</a></li>

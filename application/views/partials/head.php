@@ -5,14 +5,14 @@
 <?= link_tag('assets/stylesheets/header.less', 'stylesheet/less'); ?>
 <?= link_tag('assets/stylesheets/content.less', 'stylesheet/less'); ?>
 <?= link_tag('assets/stylesheets/posts.less', 'stylesheet/less'); ?>
+<?= link_tag('assets/stylesheets/screencasts.less', 'stylesheet/less'); ?>
 <?= link_tag('assets/stylesheets/footer.less', 'stylesheet/less'); ?>
-<?= link_tag('assets/stylesheets/common.less', 'stylesheet/less'); ?>
 <script type="text/javascript">
   var less = {
       env: "development",
       async: false,
       fileAsync: false,
-      poll: 1000,
+      poll: 1,
       functions: {},
       dumpLineNumbers: "comments",
       relativeUrls: false
