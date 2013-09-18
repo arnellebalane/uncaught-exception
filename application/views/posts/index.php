@@ -12,10 +12,10 @@
     <div id="content-area">
       <div class="wrapper">
         
-        <div class="posts-list clearfix">
+        <div class="items-list clearfix">
           <?php $counter = 8; ?>
           <?php while ($counter-- > 0): ?>
-            <div class="post-thumbnail">
+            <div class="item-thumbnail">
               <?= anchor('posts/show', 'Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit', array('class' => 'title')); ?>
               <footer>
                 <?= profile_picture('profile-picture.png'); ?>

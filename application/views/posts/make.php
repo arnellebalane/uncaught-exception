@@ -11,8 +11,8 @@
 
     <div id="content-area">
       <div class="wrapper clearfix">
-        <div class="post clearfix">
-          <div class="content">
+        <div class="item clearfix">
+          <div class="main">
             <form action="#" method="POST">
               <div class="field">
                 <input type="text" name="title" placeholder="Title" autocomplete="off" spellcheck="false" />
@@ -29,7 +29,7 @@
             </form>
           </div>
 
-          <aside>
+          <aside class="sidebar">
             <h3>Formatting Guide</h3>
             <p>**bold**</p>
             <p>__italic__</p>

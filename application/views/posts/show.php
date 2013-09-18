@@ -11,8 +11,8 @@
 
     <div id="content-area">
       <div class="wrapper clearfix">
-        <div class="post clearfix">
-          <div class="content">
+        <div class="item clearfix">
+          <div class="main">
             <header class="clearfix">
               <h1>Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit</h1>
               <div id="tags">
@@ -22,7 +22,7 @@
                 <a href="#">consectetur</a>
               </div>
 
-              <section id="post-stats">
+              <section id="stats">
                 <ul>
                   <li><a href="#" class="stat" id="post-likes"></a></li>
                   <li><a href="#" class="stat" id="post-comments"></a></li>
@@ -31,7 +31,7 @@
               </section>
             </header>
 
-            <div id="post-body">
+            <div id="content">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet tincidunt ipsum sit amet consectetur. Integer eros sapien, feugiat vitae adipiscing eget, tincidunt et elit. Nulla facilisi. Phasellus vel neque leo. Curabitur sed felis sodales, ornare nisl vitae, convallis risus. Mauris consequat, ante eget eleifend elementum, diam elit rhoncus dui, fermentum aliquam dolor neque vitae urna. Proin sodales neque adipiscing lorem molestie cursus. Mauris faucibus diam nisl, nec adipiscing lacus gravida id. Ut pretium eu urna quis pharetra. Duis dapibus, tellus in pellentesque rutrum, tellus augue sodales mauris, sed mollis nunc purus eu urna. Donec sagittis sapien eget fringilla condimentum.</p>
 
               <p>Suspendisse ut commodo neque, nec consectetur dolor. Aliquam urna nibh, pellentesque lobortis nunc eget, lacinia blandit quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce semper interdum enim vel ornare. Aliquam id vehicula neque. Nam in nibh dolor. Mauris hendrerit tincidunt orci quis varius. Cras a vulputate arcu. Pellentesque ac tincidunt libero, vitae pulvinar leo. Cras ultricies pellentesque congue. Donec sagittis et tortor non ultricies. Sed non viverra purus. Duis pretium sapien in lacinia congue. Sed condimentum eget risus ut venenatis.</p>
@@ -73,8 +73,8 @@
             </section>
           </div>
 
-          <aside>
-            <section id="author-profile">
+          <aside class="sidebar">
+            <section id="user-profile">
               <?= profile_picture('profile-picture.png'); ?>
               <a href="#" id="name">Arnelle Balane</a>
               <ul class="social-links">
@@ -99,7 +99,7 @@
               </ul>
             </section>
 
-            <section id="related-posts">
+            <section id="related-items">
               <h3>Related Posts</h3>
               <a href="#">Lorem Ipsum Dolor Sit Amet</a>
               <a href="#">Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit</a>

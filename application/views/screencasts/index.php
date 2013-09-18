@@ -12,10 +12,10 @@
     <div id="content-area">
       <div class="wrapper">
         
-        <div class="screencasts-list clearfix">
+        <div class="items-list clearfix">
           <?php $counter = 6; ?>
           <?php while ($counter-- > 0): ?>
-            <div class="screencast-thumbnail">
+            <div class="item-thumbnail">
               <div class="video"></div>
               <aside>
                 <?= anchor('screencasts/show', 'Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit', array('class' => 'title')); ?>

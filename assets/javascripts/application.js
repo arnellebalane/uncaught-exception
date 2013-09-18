@@ -1,18 +1,10 @@
 $(document).ready(function() {
-  post.initialize();
-  screencast.initialize();
+  item.initialize();
 });
 
-var post = {
+var item = {
   initialize: function() {
-    var height = Math.max($(".post .content").outerHeight(), $(".post aside").outerHeight());
-    $(".post .content, .post aside").outerHeight(height);
-  }
-};
-
-var screencast = {
-  initialize: function() {
-    var height = Math.max($(".screencast .content").outerHeight(), $(".screencast aside").outerHeight());
-    $(".screencast .content, .screencast aside").outerHeight(height);
+    var height = Math.max($(".item .main").outerHeight(), $(".item .sidebar").outerHeight());
+    $(".item .main, .item .sidebar").outerHeight(height);
   }
 };
