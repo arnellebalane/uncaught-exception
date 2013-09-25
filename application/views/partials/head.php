@@ -1,12 +1,13 @@
 <meta charset="utf-8" />
-<?= link_tag('assets/stylesheets/reset.css'); ?>
-<?= link_tag('assets/stylesheets/application.less', 'stylesheet/less'); ?>
-<?= link_tag('assets/stylesheets/common.less', 'stylesheet/less'); ?>
-<?= link_tag('assets/stylesheets/header.less', 'stylesheet/less'); ?>
-<?= link_tag('assets/stylesheets/content.less', 'stylesheet/less'); ?>
-<?= link_tag('assets/stylesheets/posts.less', 'stylesheet/less'); ?>
-<?= link_tag('assets/stylesheets/screencasts.less', 'stylesheet/less'); ?>
-<?= link_tag('assets/stylesheets/footer.less', 'stylesheet/less'); ?>
+<link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/reset.css'; ?>" />
+<link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/fonts.css'; ?>" />
+<link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/application.less'; ?>" />
+<link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/common.less'; ?>" />
+<link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/header.less'; ?>" />
+<link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/content.less'; ?>" />
+<link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/posts.less'; ?>" />
+<link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/screencasts.less'; ?>" />
+<link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/footer.less'; ?>" />
 <script type="text/javascript">
   var less = {
       env: "development",
