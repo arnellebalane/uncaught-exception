@@ -364,3 +364,44 @@
     }
   }
 }
+
+.make .item .main .field {
+  input[type="text"], textarea {
+    display: block;
+    width: 100%;
+    color: #333333;
+    padding: 10px;
+    background-color: #eaeaea;
+    border: none;
+    .box-sizing(border-box);
+
+    &:focus {
+      background-color: #e7e7e7;
+      box-shadow: inset 0 1px 1px rgba(50, 50, 50, 0.15);
+    }
+
+    &[name="title"] {
+      font: bold 1.5rem "Open Sans Light";
+    }
+  }
+
+  textarea {
+    height: 280px;
+    font-size: 1.4rem;
+  }
+
+  input[type="submit"] {
+    font: normal 1.3rem "Open Sans";
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #415469;
+    padding: 8px 25px;
+    border: none;
+    cursor: pointer;
+
+    &:hover, &:focus {
+      background-color: #333333;
+    }
+  }
+}

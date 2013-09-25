@@ -12,22 +12,20 @@
     <div id="content-area">
       <div class="wrapper clearfix">
         <div class="item clearfix">
-          <div class="main">
-            <form action="#" method="POST">
-              <div class="field">
-                <input type="text" name="title" placeholder="Title" autocomplete="off" spellcheck="false" />
-              </div>
-              <div class="field">
-                <textarea name="content" placeholder="" spellcheck="false"></textarea>
-              </div>
-              <div class="field">
-                <input type="text" name="tags" placeholder="Tags (comma-separated)" autocomplete="off" spellcheck="false" />
-              </div>
-              <div class="field">
-                <input type="submit" value="Publish Post" />
-              </div>
-            </form>
-          </div>
+          <form action="#" method="POST" class="main">
+            <div class="field">
+              <input type="text" name="title" placeholder="Title" autocomplete="off" spellcheck="false" />
+            </div>
+            <div class="field">
+              <textarea name="content" placeholder="" spellcheck="false"></textarea>
+            </div>
+            <div class="field">
+              <input type="text" name="tags" placeholder="Tags (comma-separated)" autocomplete="off" spellcheck="false" />
+            </div>
+            <div class="field">
+              <input type="submit" value="Publish Post" />
+            </div>
+          </form>
 
           <aside class="sidebar">
             <h3>Formatting Guide</h3>

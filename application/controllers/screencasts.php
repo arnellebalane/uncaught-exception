@@ -18,6 +18,10 @@
       $this->load->view('screencasts/show');
     }
 
+    public function make() {
+      $this->load->view('screencasts/make');
+    }
+
     private function _determine_route() {
       $controller = $this->uri->segment(1);
       $action = $this->uri->segment(2);
