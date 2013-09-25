@@ -8,6 +8,7 @@
 <link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/sessions.less'; ?>" />
 <link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/posts.less'; ?>" />
 <link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/screencasts.less'; ?>" />
+<link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/profile.less'; ?>" />
 <link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/footer.less'; ?>" />
 <script type="text/javascript">
   var less = {
