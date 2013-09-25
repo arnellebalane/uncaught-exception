@@ -1,8 +1,8 @@
 <footer id="main-footer">
   <div class="wrapper clearfix">
     <ul id="links">
-      <li><a href="#">Blog</a></li>
-      <li><a href="#">Screencasts</a></li>
+      <li><?= anchor('posts/index', 'Blog'); ?></li>
+      <li><?= anchor('screencasts/index', 'Screencasts'); ?></li>
       <li><a href="#">Contact</a></li>
       <li><a href="#">About</a></li>
     </ul>

@@ -5,6 +5,7 @@
 <link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/common.less'; ?>" />
 <link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/header.less'; ?>" />
 <link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/content.less'; ?>" />
+<link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/sessions.less'; ?>" />
 <link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/posts.less'; ?>" />
 <link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/screencasts.less'; ?>" />
 <link rel="stylesheet/less" href="<?= base_url() . 'assets/stylesheets/footer.less'; ?>" />
