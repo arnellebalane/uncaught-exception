@@ -7,7 +7,15 @@
         <li><?= anchor('posts/index', 'Blog', array('class' => navigation_link_class('posts', $controller_name))) ?></li>
         <li><?= anchor('screencasts/index', 'Screencasts', array('class' => navigation_link_class('screencasts', $controller_name))) ?></li>
         <?php if (user_logged_in()): ?>
-          <li><?= anchor('sessions/destroy', fullname($current_user), array('class' => 'button-link')); ?></li>
+          <li>
+            <?= anchor('profile/show', fullname($current_user), array('class' => 'button-link')); ?>
+            <ul>
+              <li><?= anchor('posts/make', 'New Post'); ?></li>
+              <li><?= anchor('screencasts/make', 'New Screencast'); ?></li>
+              <li><?= anchor('#', 'Profile Settings'); ?></li>
+              <li><?= anchor('sessions/destroy', 'Sign Out'); ?></li>
+            </ul>
+          </li>
         <?php else: ?>
           <li><?= anchor('sessions/make', 'Login', array('class' => navigation_link_class('sessions', $controller_name) . ' button-link')); ?></li>
         <?php endif; ?>

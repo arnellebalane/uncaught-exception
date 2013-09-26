@@ -37,3 +37,21 @@
   -ms-border-bottom-right-radius: @radius;
   border-bottom-right-radius: @radius;
 }
+
+.transition(@properties, @duration, @easing) {
+  -webkit-transition-property: @properties;
+  -webkit-transition-duration: @duration;
+  -webkit-transition-timing-function: @easing;
+  -moz-transition-property: @properties;
+  -moz-transition-duration: @duration;
+  -moz-transition-timing-function: @easing;
+  -o-transition-property: @properties;
+  -o-transition-duration: @duration;
+  -o-transition-timing-function: @easing;
+  -ms-transition-property: @properties;
+  -ms-transition-duration: @duration;
+  -ms-transition-timing-function: @easing;
+  transition-property: @properties;
+  transition-duration: @duration;
+  transition-timing-function: @easing;
+}
