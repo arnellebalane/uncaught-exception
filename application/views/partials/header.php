@@ -6,6 +6,7 @@
       <ul>
         <li><?= anchor('posts/index', 'Blog', array('class' => navigation_link_class('posts', $controller_name))) ?></li>
         <li><?= anchor('screencasts/index', 'Screencasts', array('class' => navigation_link_class('screencasts', $controller_name))) ?></li>
+        <li><?= anchor('sessions/make', 'Login', array('class' => navigation_link_class('sessions', $controller_name), 'id' => 'login-link')); ?></li>
       </ul>
     </nav>
   </div>
