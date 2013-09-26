@@ -34,7 +34,11 @@
     }
 
     public function show($slug) {
-      $this->load->view('posts/show');
+      $data['post'] = $this->post->find_by(array('slug' => $slug));
+      $data['user'] = $this->post->get_user($data['post']);
+      $data['tags'] = $this->post->get_tags($data['post']);
+      $data['comments'] = $this->post->get_comments($data['post']);
+      $this->load->view('posts/show', $data);
     }
 
     private function _determine_route() {

@@ -14,12 +14,11 @@
         <div class="item clearfix">
           <div class="main">
             <header class="clearfix">
-              <h1>Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit</h1>
+              <h1><?= $post['title']; ?></h1>
               <div id="tags">
-                <a href="#">lorem</a>
-                <a href="#">ipsum</a>
-                <a href="#">dolor</a>
-                <a href="#">consectetur</a>
+                <?php foreach ($tags as $tag): ?>
+                  <?= anchor('#', $tag['name']); ?>
+                <?php endforeach; ?>
               </div>
 
               <section id="stats">
@@ -32,28 +31,25 @@
             </header>
 
             <div id="content">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet tincidunt ipsum sit amet consectetur. Integer eros sapien, feugiat vitae adipiscing eget, tincidunt et elit. Nulla facilisi. Phasellus vel neque leo. Curabitur sed felis sodales, ornare nisl vitae, convallis risus. Mauris consequat, ante eget eleifend elementum, diam elit rhoncus dui, fermentum aliquam dolor neque vitae urna. Proin sodales neque adipiscing lorem molestie cursus. Mauris faucibus diam nisl, nec adipiscing lacus gravida id. Ut pretium eu urna quis pharetra. Duis dapibus, tellus in pellentesque rutrum, tellus augue sodales mauris, sed mollis nunc purus eu urna. Donec sagittis sapien eget fringilla condimentum.</p>
-
-              <p>Suspendisse ut commodo neque, nec consectetur dolor. Aliquam urna nibh, pellentesque lobortis nunc eget, lacinia blandit quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce semper interdum enim vel ornare. Aliquam id vehicula neque. Nam in nibh dolor. Mauris hendrerit tincidunt orci quis varius. Cras a vulputate arcu. Pellentesque ac tincidunt libero, vitae pulvinar leo. Cras ultricies pellentesque congue. Donec sagittis et tortor non ultricies. Sed non viverra purus. Duis pretium sapien in lacinia congue. Sed condimentum eget risus ut venenatis.</p>
-
-              <p>Suspendisse potenti. Ut iaculis, urna non ornare placerat, urna est blandit ante, id consequat elit odio a neque. Maecenas ac nisi at mi egestas euismod. Cras tempor mauris eros, a vehicula sapien malesuada id. Suspendisse potenti. Pellentesque sit amet pharetra lectus, eget interdum nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec mollis vehicula turpis, sed tempus magna blandit sit amet. Maecenas vitae  nisl. Suspendisse sed quam vehicula justo congue porttitor.</p>
+              <?= nl2br($post['content']); ?>
             </div>
 
-            <section id="comments">
-              <?php $counter = 3; ?>
-              <?php while ($counter-- > 0): ?>
-                <div class="comment">
-                  <header class="clearfix">
-                    <?= profile_picture('profile-picture.png'); ?>
-                    <h4>Arnelle Balane</h4>
-                  </header>
+            <?php if (!empty($comments)): ?>
+              <section id="comments">
+                <?php foreach ($comments as $comment): ?>
+                  <div class="comment">
+                    <header class="clearfix">
+                      <?= profile_picture('profile-picture.png'); ?>
+                      <h4><?= $comment['commentor_name']; ?></h4>
+                    </header>
 
-                  <div class="comment-body">
-                    <p>Suspendisse ut commodo neque, nec consectetur dolor. Aliquam urna nibh, pellentesque lobortis nunc eget, lacinia blandit quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce semper interdum enim vel ornare.</p>
+                    <div class="comment-body">
+                      <p><?= nl2br($comment['content']); ?></p>
+                    </div>
                   </div>
-                </div>
-              <?php endwhile; ?>
-            </section>
+                <?php endforeach; ?>
+              </section>
+            <?php endif; ?>
 
             <section id="comment-form">
               <form action="#" method="POST">
@@ -75,8 +71,9 @@
 
           <aside class="sidebar">
             <section id="user-profile">
-              <?= profile_picture('profile-picture.png'); ?>
-              <a href="#" id="name">Arnelle Balane</a>
+              <?= profile_picture($user['profile_picture']); ?>
+              <a href="#" id="name"><?= fullname($user); ?></a>
+              <!---------------------- USER SOCIAL LINKS --------------------------
               <ul class="social-links">
                 <li>
                   <a href="#">
@@ -97,14 +94,17 @@
                   </a>
                 </li>
               </ul>
+              ------------------------------------------------------------------------>
             </section>
 
+            <!---------------------- RELATED COMMENTS SECTION ----------------------
             <section id="related-items">
               <h3>Related Posts</h3>
               <a href="#">Lorem Ipsum Dolor Sit Amet</a>
               <a href="#">Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit</a>
               <a href="#">Lorem Ipsum Dolor Sit Amet</a>
             </section>
+            -------------------------------------------------------------------------->
           </aside>
         </div>
       </div>

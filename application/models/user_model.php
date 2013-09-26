@@ -17,6 +17,7 @@
     }
 
     public function find($id) {
+      $this->db->select('users.id, users.username, profiles.*');
       $this->db->where('id', $id);
       $this->db->join('profiles', 'users.id = profiles.user_id', 'inner');
       $user = $this->db->get('users');

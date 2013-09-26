@@ -44,4 +44,19 @@
       }
     }
 
+    public function get_user($post) {
+      $this->load->model('user_model', 'user');
+      return $this->user->find($post['user_id']);
+    }
+
+    public function get_tags($post) {
+      $this->load->model('tag_model', 'tag');
+      return $this->tag->find_by_taggable(array('taggable_type' => 'posts', 'taggable_id' => $post['id']));
+    }
+
+    public function get_comments($post) {
+      $this->load->model('comment_model', 'comment');
+      return $this->comment->find_by(array('commentable_type' => 'posts', 'commentable_id' => $post['id']));
+    }
+
   }
