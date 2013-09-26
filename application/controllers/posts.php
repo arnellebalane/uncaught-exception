@@ -9,12 +9,16 @@
       $this->load->model('user_model', 'user');
       $this->load->model('post_model', 'post');
 
+      $this->BATCH_SIZE = 8;
+
       $this->_determine_route();
       $this->_current_user();
     }
 
-    public function index() {
-      $this->load->view('posts/index');
+    public function index($sort = 'fresh') {
+      $data['posts'] = $this->post->get(8);
+      $data['has_more_posts'] = $this->post->count() > $this->BATCH_SIZE;
+      $this->load->view('posts/index', $data);
     }
 
     public function make() {

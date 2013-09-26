@@ -10,3 +10,7 @@
     $CI =& get_instance();
     return !!$CI->session->userdata('user_id');
   }
+
+  function display_date($date) {
+    return date('F d, Y', strtotime($date));
+  }

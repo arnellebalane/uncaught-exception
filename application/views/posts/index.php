@@ -13,20 +13,22 @@
       <div class="wrapper">
         
         <div class="items-list clearfix">
-          <?php $counter = 8; ?>
-          <?php while ($counter-- > 0): ?>
+          <?php foreach ($posts as $post): ?>
             <div class="item-thumbnail">
-              <?= anchor('posts/show', 'Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit', array('class' => 'title')); ?>
+              <?= anchor('posts/show/' . $post['slug'], $post['title'], array('class' => 'title')); ?>
               <footer>
-                <?= profile_picture('profile-picture.png'); ?>
-                <a href="#">Arnelle Balane</a>
-                <time>September 12, 2013</time>
+                <?php $user = $this->post->get_user($post); ?>
+                <?= profile_picture($user['profile_picture']); ?>
+                <?= anchor('profile/show/' . $user['id'], fullname($user)); ?>
+                <time><?= display_date($post['created_at']); ?></time>
               </footer>
             </div>
-          <?php endwhile; ?>
+          <?php endforeach; ?>
         </div>
 
-        <a href="#" id="load-more">Load More Posts</a>
+        <?php if ($has_more_posts): ?>
+          <a href="#" id="load-more">Load More Posts</a>
+        <?php endif; ?>
       </div>
     </div>
 

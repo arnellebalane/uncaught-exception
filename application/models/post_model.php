@@ -28,6 +28,10 @@
       return $post;
     }
 
+    public function count() {
+      return $this->db->count_all('posts');
+    }
+
     public function tag($post, $tags) {
       $this->load->model('tag_model', 'tag');
       foreach ($tags as $t) {
@@ -42,6 +46,11 @@
         );
         $this->db->insert('taggable_tags', $taggable_tag);
       }
+    }
+
+    public function get($limit, $offset = 0) {
+      $posts = $this->db->get('posts', $limit, $offset);
+      return $posts->result_array();
     }
 
     public function get_user($post) {

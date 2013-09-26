@@ -72,7 +72,7 @@
           <aside class="sidebar">
             <section id="user-profile">
               <?= profile_picture($user['profile_picture']); ?>
-              <a href="#" id="name"><?= fullname($user); ?></a>
+              <?= anchor('profile/show/' . $user['id'], fullname($user), array('id' => 'name')); ?>
               <!---------------------- USER SOCIAL LINKS --------------------------
               <ul class="social-links">
                 <li>
