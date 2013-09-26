@@ -7,6 +7,7 @@
       $this->load->helper('application');
       $this->load->helper('profile');
       $this->load->model('user_model', 'user');
+      $this->load->model('post_model', 'post');
 
       $this->_determine_route();
       $this->_current_user();
@@ -20,7 +21,19 @@
       $this->load->view('posts/make');
     }
 
-    public function show() {
+    public function create() {
+      $post = array(
+        'user_id' => $this->session->userdata('user_id'),
+        'title' => $this->input->post('title'),
+        'content' => $this->input->post('content'),
+      );
+      $tags = explode(',', $this->input->post('tags'));
+      $post = $this->post->create($post);
+      $this->post->tag($post, $tags);
+      redirect('posts/show/' . $post['slug']);
+    }
+
+    public function show($slug) {
       $this->load->view('posts/show');
     }
 

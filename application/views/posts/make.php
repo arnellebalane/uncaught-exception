@@ -12,7 +12,7 @@
     <div id="content-area">
       <div class="wrapper clearfix">
         <div class="item clearfix">
-          <form action="#" method="POST" class="main">
+          <?= form_open('posts/create', array('class' => 'main')); ?>
             <div class="field">
               <input type="text" name="title" placeholder="Title" autocomplete="off" spellcheck="false" />
             </div>
@@ -25,7 +25,7 @@
             <div class="field">
               <input type="submit" value="Publish Post" />
             </div>
-          </form>
+          <?= form_close(); ?>
 
           <aside class="sidebar">
             <h3>Formatting Guide</h3>
