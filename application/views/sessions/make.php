@@ -10,8 +10,11 @@
     <?php $this->load->view('partials/header'); ?>
 
     <div id="content-area">
-      <form action="#" method="POST">
-        <!-- <p class="error">Incorrect username or password.</p> -->
+      <?= form_open('sessions/create'); ?>
+        <?php if ($this->session->flashdata('error')): ?>
+          <p class="error"><?= $this->session->flashdata('error'); ?></p>
+        <?php endif; ?>
+
         <div class="field">
           <input type="text" name="username" placeholder="Username" />
         </div>
@@ -21,7 +24,7 @@
         <div class="field">
           <input type="submit" value="Sign In" />
         </div>
-      </form>
+      <?= form_close(); ?>
     </div>
 
     <div id="footer-placeholder"></div>
