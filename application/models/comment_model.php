@@ -13,4 +13,8 @@
       return $comments->result_array();
     }
 
+    public function create($comment) {
+      $this->db->insert('comments', $comment);
+    }
+
   }
