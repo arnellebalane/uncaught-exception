@@ -12,10 +12,10 @@
     <div id="content-area">
       <div class="wrapper">
         <div id="user-profile" class="clearfix">
-          <?= profile_picture('profile-picture.png'); ?>
+          <?= profile_picture($user['profile_picture']); ?>
           <div class="details">
-            <h1>Arnelle Balane</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h1><?= fullname($user); ?></h1>
+            <p><?= nl2br($user['about']); ?></p>
           </div>
         </div>
         <div id="user-connections">

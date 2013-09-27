@@ -12,7 +12,7 @@
             <ul>
               <li><?= anchor('posts/make', 'New Post'); ?></li>
               <li><?= anchor('screencasts/make', 'New Screencast'); ?></li>
-              <li><?= anchor('#', 'Profile Settings'); ?></li>
+              <li><?= anchor('profile/edit', 'Profile Settings'); ?></li>
               <li><?= anchor('sessions/destroy', 'Sign Out'); ?></li>
             </ul>
           </li>

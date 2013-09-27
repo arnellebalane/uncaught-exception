@@ -24,4 +24,9 @@
       return $user->row_array();
     }
 
+    public function update_profile($id, $profile) {
+      $this->db->where('user_id', $id);
+      $this->db->update('profiles', $profile);
+    }
+
   }
