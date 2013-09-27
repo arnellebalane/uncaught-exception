@@ -16,7 +16,7 @@
         <?php endif; ?>
 
         <div class="field">
-          <input type="text" name="username" placeholder="Username" />
+          <input type="text" name="username" placeholder="Username" autofocus="true" />
         </div>
         <div class="field">
           <input type="password" name="password" placeholder="Password" />
