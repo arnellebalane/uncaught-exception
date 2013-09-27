@@ -9,6 +9,7 @@
       $this->load->model('user_model', 'user');
 
       $this->_determine_route();
+      $this->_signed_in_filter();
       $this->_current_user();
     }
 
@@ -30,6 +31,14 @@
       $this->route['controller_name'] = ($controller) ? $controller : 'screencasts';
       $this->route['action_name'] = ($action) ? $action : 'index';
       $this->load->vars($this->route);
+    }
+
+    private function _signed_in_filter() {
+      $actions = array('make', 'create');
+      if (in_array($this->route['action_name'], $actions) && !$this->_user_logged_in()) {
+        $this->session->set_flashdata('error', 'You must be logged in to view the page.');
+        redirect('sessions/make');
+      }
     }
 
     private function _current_user() {

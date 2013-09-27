@@ -9,6 +9,7 @@
       $this->load->model('user_model', 'user');
 
       $this->_determine_route();
+      $this->_signed_in_filter();
     }
 
     public function make() {
@@ -39,6 +40,18 @@
       $this->route['controller_name'] = ($controller) ? $controller : 'sessions';
       $this->route['action_name'] = ($action) ? $action : 'make';
       $this->load->vars($this->route);
+    }
+
+    private function _signed_in_filter() {
+      $actions = array('destroy');
+      if (in_array($this->route['action_name'], $actions) && !$this->_user_logged_in()) {
+        $this->session->set_flashdata('error', 'You must be logged in to view the page.');
+        redirect('sessions/make');
+      }
+    }
+
+    private function _user_logged_in() {
+      return !!$this->session->userdata('user_id');
     }
 
   }
