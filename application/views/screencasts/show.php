@@ -54,20 +54,22 @@
             <?php endif; ?>
 
             <section id="comment-form">
-              <form action="#" method="POST">
+              <?= form_open('comments/create'); ?>
                 <div class="field">
                   <textarea name="content" placeholder="Leave a comment..." spellcheck="false"></textarea>
                 </div>
                 <div class="field float-left">
-                  <input type="text" name="name" placeholder="Your name" autocomplete="off" spellcheck="false" />
+                  <input type="text" name="commentor_name" placeholder="Your name" autocomplete="off" spellcheck="false" />
                 </div>
                 <div class="field float-right">
-                  <input type="email" name="email" placeholder="Your email" autocomplete="off" spellcheck="false" />
+                  <input type="email" name="commentor_email" placeholder="Your email" autocomplete="off" spellcheck="false" />
                 </div>
                 <div class="field">
+                  <input type="hidden" name="commentable_type" value="screencasts" />
+                  <input type="hidden" name="commentable_id" value="<?= $screencast['id']; ?>" />
                   <input type="submit" value="Post Comment" />
                 </div>
-              </form>
+              <?= form_close(); ?>
             </section>
           </div>
 

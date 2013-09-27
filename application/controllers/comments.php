@@ -5,14 +5,19 @@
     public function __construct() {
       parent::__construct();
       $this->load->model('post_model', 'post');
+      $this->load->model('screencast_model', 'screencast');
       $this->load->model('comment_model', 'comment');
     }
 
     public function create() {
       $comment = $this->input->post();
       $this->comment->create($comment);
-      $post = $this->post->find($comment['commentable_id']);
-      redirect($comment['commentable_type'] . '/show/' . $post['slug']);
+      if ($comment['commentable_type'] == 'posts') {
+        $object = $this->post->find($comment['commentable_id']);
+      } else if ($comment['commentable_type'] == 'screencasts') {
+        $object = $this->screencast->find($comment['commentable_id']);
+      }
+      redirect($comment['commentable_type'] . '/show/' . $object['slug']);
     }
 
   }
