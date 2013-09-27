@@ -99,14 +99,14 @@
               ------------------------------------------------------------------------>
             </section>
 
-            <!---------------------- RELATED COMMENTS SECTION ----------------------
-            <section id="related-items">
-              <h3>Related Posts</h3>
-              <a href="#">Lorem Ipsum Dolor Sit Amet</a>
-              <a href="#">Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit</a>
-              <a href="#">Lorem Ipsum Dolor Sit Amet</a>
-            </section>
-            -------------------------------------------------------------------------->
+            <?php if (!empty($related_posts)): ?>
+              <section id="related-items">
+                <h3>Related Posts</h3>
+                <?php foreach ($related_posts as $related_post): ?>
+                  <?= anchor('posts/show/' . $related_post['slug'], $related_post['title']); ?>
+                <?php endforeach; ?>
+              </section>
+            <?php endif; ?>
           </aside>
         </div>
       </div>

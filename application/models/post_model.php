@@ -8,15 +8,22 @@
     }
 
     public function find($id) {
-      $this->db->where('id', $id);
-      $post = $this->db->get('posts');
-      return $post->row_array();
+      return $this->find_by(array('id' => $id));
     }
 
     public function find_by($post) {
       $this->db->where($post);
       $post = $this->db->get('posts');
       return $post->row_array();
+    }
+
+    public function find_by_tag($tag) {
+      $this->db->select('posts.*');
+      $this->db->join('taggable_tags', 'posts.id = taggable_tags.taggable_id', 'inner');
+      $this->db->join('tags', 'taggable_tags.tag_id = tags.id', 'inner');
+      $this->db->where(array('tag_id' => $tag['id'], 'taggable_type' => 'posts'));
+      $posts = $this->db->get('posts');
+      return $posts->result_array();
     }
 
     public function create($post) {
@@ -66,6 +73,22 @@
     public function get_comments($post) {
       $this->load->model('comment_model', 'comment');
       return $this->comment->find_by(array('commentable_type' => 'posts', 'commentable_id' => $post['id']));
+    }
+
+    public function get_related_posts($post) {
+      $RELATED_ITEMS_COUNT = 5;
+      $tags = $this->get_tags($post);
+      $related_posts = array();
+      foreach ($tags as $tag) {
+        $posts = $this->find_by_tag($tag);
+        foreach ($posts as $p) {
+          if (!in_array($p, $related_posts) && $p['id'] != $post['id']) {
+            array_push($related_posts, $p);
+          }
+        }
+      }
+      shuffle($related_posts);
+      return array_slice($related_posts, 0, $RELATED_ITEMS_COUNT);
     }
 
   }

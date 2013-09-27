@@ -43,6 +43,7 @@
       $data['user'] = $this->post->get_user($data['post']);
       $data['tags'] = $this->post->get_tags($data['post']);
       $data['comments'] = $this->post->get_comments($data['post']);
+      $data['related_posts'] = $this->post->get_related_posts($data['post']);
       $this->load->view('posts/show', $data);
     }
 
