@@ -14,7 +14,7 @@
         <div class="item">
           <div class="main">
             <div class="video"></div>
-            <form action="#" method="POST">
+            <?= form_open('screencasts/create'); ?>
               <div class="field">
                 <input type="text" name="title" placeholder="Title" />
               </div>
@@ -30,7 +30,7 @@
               <div class="field">
                 <input type="submit" value="Publish Screencast" />
               </div>
-            </form>
+            <?= form_close(); ?>
           </div>
         </div>
       </div>

@@ -16,12 +16,11 @@
           <div class="video"></div>
           <div class="main">
             <header class="clearfix">
-              <h1>Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit</h1>
+              <h1><?= $screencast['title']; ?></h1>
               <div id="tags">
-                <a href="#">lorem</a>
-                <a href="#">ipsum</a>
-                <a href="#">dolor</a>
-                <a href="#">consectetur</a>
+                <?php foreach ($tags as $tag): ?>
+                  <?= anchor('#', $tag['name']); ?>
+                <?php endforeach; ?>
               </div>
 
               <section id="stats">
@@ -34,24 +33,25 @@
             </header>
 
             <div id="content">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet tincidunt ipsum sit amet consectetur.</p>
+              <p><?= nl2br($screencast['description']) ?></p>
             </div>
 
-            <section id="comments">
-              <?php $counter = 3; ?>
-              <?php while ($counter-- > 0): ?>
-                <div class="comment">
-                  <header class="clearfix">
-                    <?= profile_picture('profile-picture.png'); ?>
-                    <h4>Arnelle Balane</h4>
-                  </header>
+            <?php if (!empty($comments)): ?>
+              <section id="comments">
+                <?php foreach ($comments as $comment): ?>
+                  <div class="comment">
+                    <header class="clearfix">
+                      <?= profile_picture('profile-picture.png'); ?>
+                      <h4><?= $comment['commentor_name'] ?></h4>
+                    </header>
 
-                  <div class="comment-body">
-                    <p>Suspendisse ut commodo neque, nec consectetur dolor. Aliquam urna nibh, pellentesque lobortis nunc eget, lacinia blandit quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce semper interdum enim vel ornare.</p>
+                    <div class="comment-body">
+                      <p><?= nl2br($comment['content']); ?></p>
+                    </div>
                   </div>
-                </div>
-              <?php endwhile; ?>
-            </section>
+                <?php endforeach; ?>
+              </section>
+            <?php endif; ?>
 
             <section id="comment-form">
               <form action="#" method="POST">
@@ -73,8 +73,9 @@
 
           <aside class="sidebar">
             <section id="user-profile">
-              <?= profile_picture('profile-picture.png'); ?>
-              <a href="#" id="name">Arnelle Balane</a>
+              <?= profile_picture($user['profile_picture']); ?>
+              <?= anchor('profile/show/' . $user['id'], fullname($user), array('id' => 'name')); ?>
+              <!---------------------- USER SOCIAL LINKS --------------------------
               <ul class="social-links">
                 <li>
                   <a href="#">
@@ -95,6 +96,7 @@
                   </a>
                 </li>
               </ul>
+              ------------------------------------------------------------------------>
             </section>
           </aside>
         </div>

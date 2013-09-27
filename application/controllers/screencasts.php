@@ -7,6 +7,7 @@
       $this->load->helper('application');
       $this->load->helper('profile');
       $this->load->model('user_model', 'user');
+      $this->load->model('screencast_model', 'screencast');
 
       $this->_determine_route();
       $this->_signed_in_filter();
@@ -17,12 +18,29 @@
       $this->load->view('screencasts/index');
     }
 
-    public function show() {
-      $this->load->view('screencasts/show');
+    public function show($slug) {
+      $data['screencast'] = $this->screencast->find_by(array('slug' => $slug));
+      $data['user'] = $this->screencast->get_user($data['screencast']);
+      $data['tags'] = $this->screencast->get_tags($data['screencast']);
+      $data['comments'] = $this->screencast->get_comments($data['screencast']);
+      $this->load->view('screencasts/show', $data);
     }
 
     public function make() {
       $this->load->view('screencasts/make');
+    }
+
+    public function create() {
+      $screencast = array(
+        'user_id' => $this->session->userdata('user_id'),
+        'title' => $this->input->post('title'),
+        'description' => $this->input->post('description'),
+        'video_url' => $this->input->post('video_url')
+      );
+      $tags = explode(',', $this->input->post('tags'));
+      $screencast = $this->screencast->create($screencast);
+      $this->screencast->tag($screencast, $tags);
+      redirect('screencasts/show/' . $screencast['slug']);
     }
 
     private function _determine_route() {
