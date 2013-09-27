@@ -9,13 +9,17 @@
       $this->load->model('user_model', 'user');
       $this->load->model('screencast_model', 'screencast');
 
+      $this->BATCH_SIZE = 8;
+
       $this->_determine_route();
       $this->_signed_in_filter();
       $this->_current_user();
     }
 
-    public function index() {
-      $this->load->view('screencasts/index');
+    public function index($sort = 'fresh') {
+      $data['screencasts'] = $this->screencast->get(8);
+      $data['has_more'] = $this->screencast->count() > $this->BATCH_SIZE;
+      $this->load->view('screencasts/index', $data);
     }
 
     public function show($slug) {

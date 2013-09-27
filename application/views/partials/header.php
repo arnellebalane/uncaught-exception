@@ -28,8 +28,8 @@
   <?php if (($controller_name == 'posts' && $action_name == 'index') || ($controller_name == 'screencasts' && $action_name == 'index')): ?>
     <div class="wrapper clearfix">
       <ul>
-        <li><a href="#" class="current">Fresh</a></li>
-        <li><a href="#">Popular</a></li>
+        <li><?= anchor($controller_name . '/index/fresh', 'Fresh', array('class' => post_filter_class('fresh'))); ?></li>
+        <li><?= anchor($controller_name . '/index/popular', 'Popular', array('class' => post_filter_class('popular'))); ?></li>
       </ul>
     </div>
   <?php endif; ?>

@@ -26,6 +26,10 @@
       return $screencast;
     }
 
+    public function count() {
+      return $this->db->count_all('screencasts');
+    }
+
     public function tag($screencast, $tags) {
       $this->load->model('tag_model', 'tag');
       foreach ($tags as $t) {
@@ -40,6 +44,11 @@
         );
         $this->db->insert('taggable_tags', $taggable_tag);
       }
+    }
+
+    public function get($limit, $offset = 0) {
+      $posts = $this->db->get('screencasts', $limit, $offset);
+      return $posts->result_array();
     }
 
     public function get_user($screencast) {

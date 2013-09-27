@@ -26,7 +26,7 @@
           <?php endforeach; ?>
         </div>
 
-        <?php if ($has_more_posts): ?>
+        <?php if ($has_more): ?>
           <a href="#" id="load-more">Load More Posts</a>
         <?php endif; ?>
       </div>
