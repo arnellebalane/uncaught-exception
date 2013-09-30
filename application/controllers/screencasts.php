@@ -17,7 +17,7 @@
     }
 
     public function index($sort = 'fresh') {
-      $data['screencasts'] = $this->screencast->get(8);
+      $data['screencasts'] = $this->screencast->get($this->BATCH_SIZE, 0, $sort);
       $data['has_more'] = $this->screencast->count() > $this->BATCH_SIZE;
       $this->load->view('screencasts/index', $data);
     }

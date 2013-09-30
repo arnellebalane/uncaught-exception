@@ -17,7 +17,7 @@
     }
 
     public function index($sort = 'fresh') {
-      $data['posts'] = $this->post->get(8);
+      $data['posts'] = $this->post->get($this->BATCH_SIZE, 0, $sort);
       $data['has_more'] = $this->post->count() > $this->BATCH_SIZE;
       $this->load->view('posts/index', $data);
     }

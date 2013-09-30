@@ -55,9 +55,18 @@
       }
     }
 
-    public function get($limit, $offset = 0) {
-      $posts = $this->db->get('screencasts', $limit, $offset);
-      return $posts->result_array();
+    public function get($limit, $offset, $sort) {
+      if ($sort == 'fresh') {
+        $this->db->order_by('created_at', 'desc');
+        $screencasts = $this->db->get('screencasts', $limit, $offset);
+      } else if ($sort == 'popular') {
+        $this->db->select('screencasts.*');
+        $this->db->join('(SELECT likeable_id FROM likes WHERE likeable_type = "screencasts") likes', 'likes.likeable_id = screencasts.id', 'left');
+        $this->db->group_by('screencasts.id');
+        $this->db->order_by('COUNT(likeable_id)', 'desc');
+        $screencasts = $this->db->get('screencasts');
+      }
+      return $screencasts->result_array();
     }
 
     public function get_user($screencast) {

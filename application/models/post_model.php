@@ -64,8 +64,17 @@
       }
     }
 
-    public function get($limit, $offset = 0) {
-      $posts = $this->db->get('posts', $limit, $offset);
+    public function get($limit, $offset, $sort) {
+      if ($sort == 'fresh') {
+        $this->db->order_by('created_at', 'desc');
+        $posts = $this->db->get('posts', $limit, $offset);
+      } else if ($sort == 'popular') {
+        $this->db->select('posts.*');
+        $this->db->join('(SELECT likeable_id FROM likes WHERE likeable_type = "posts") likes', 'likes.likeable_id = posts.id', 'left');
+        $this->db->group_by('posts.id');
+        $this->db->order_by('COUNT(likeable_id)', 'desc');
+        $posts = $this->db->get('posts');
+      }
       return $posts->result_array();
     }
 
