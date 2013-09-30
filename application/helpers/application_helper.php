@@ -27,3 +27,7 @@
   function format_network_name($network) {
     return strtolower(str_replace(' ', '-', $network['name']));
   }
+
+  function social_network_url($network) {
+    return str_replace('[:handle]', $network['handle'], $network['base_url']);
+  }

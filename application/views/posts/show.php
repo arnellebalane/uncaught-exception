@@ -79,7 +79,7 @@
               <?php if (!empty($user['networks'])): ?>
                 <ul class="social-links">
                   <?php foreach ($user['networks'] as $network): ?>
-                    <li><?= anchor('#', '<span class="link" id="' . format_network_name($network) . '"></span><p>' . $network['handle'] . '</p>'); ?></li>
+                    <li><?= anchor(social_network_url($network), '<span class="link" id="' . format_network_name($network) . '"></span><p>' . $network['handle'] . '</p>'); ?></li>
                   <?php endforeach; ?>
                 </ul>
               <?php endif; ?>
