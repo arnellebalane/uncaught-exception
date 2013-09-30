@@ -41,10 +41,16 @@
         'description' => $this->input->post('description'),
         'video_url' => $this->input->post('video_url')
       );
-      $tags = explode(',', $this->input->post('tags'));
+      $tags = $this->input->post('tags');
       $screencast = $this->screencast->create($screencast);
-      $this->screencast->tag($screencast, $tags);
-      redirect('screencasts/show/' . $screencast['slug']);
+      if (array_key_exists('error', $screencast)) {
+        $this->session->set_flashdata('error', $screencast['error']);
+        redirect('screencasts/make');
+      } else {
+        $this->screencast->tag($screencast, $tags);
+        $this->session->set_flashdata('notice', 'Screencast posted.');
+        redirect('screencasts/show/' . $screencast['slug']);
+      }
     }
 
     private function _determine_route() {

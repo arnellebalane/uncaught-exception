@@ -32,10 +32,16 @@
         'title' => $this->input->post('title'),
         'content' => $this->input->post('content'),
       );
-      $tags = explode(',', $this->input->post('tags'));
+      $tags = $this->input->post('tags');
       $post = $this->post->create($post);
-      $this->post->tag($post, $tags);
-      redirect('posts/show/' . $post['slug']);
+      if (array_key_exists('error', $post)) {
+        $this->session->set_flashdata('error', $post['error']);
+        redirect('posts/make');
+      } else {
+        $this->post->tag($post, $tags);
+        $this->session->set_flashdata('notice', 'Post submitted.');
+        redirect('posts/show/' . $post['slug']);
+      }
     }
 
     public function show($slug) {

@@ -18,6 +18,10 @@
     }
 
     public function create($screencast) {
+      $screencast_validation = $this->_validate_screencast($screencast);
+      if (!$screencast_validation['result']) {
+        return array('error' => $screencast_validation['message']);
+      }
       $this->db->insert('screencasts', $screencast);
       $screencast = $this->find($this->db->insert_id());
       $screencast['slug'] = $screencast['id'] . '-' . url_title($screencast['title'], '-', true);
@@ -31,18 +35,23 @@
     }
 
     public function tag($screencast, $tags) {
-      $this->load->model('tag_model', 'tag');
-      foreach ($tags as $t) {
-        $tag = $this->tag->find_by(array('name' => trim($t)));
-        if (empty($tag)) {
-          $tag = $this->tag->create(array('name' => trim($t)));
+      if (strlen(trim($tags)) > 0) {
+        $tags = explode(',', $tags);
+        $this->load->model('tag_model', 'tag');
+        foreach ($tags as $t) {
+          if (strlen(trim($t)) > 0) {
+            $tag = $this->tag->find_by(array('name' => trim($t)));
+            if (empty($tag)) {
+              $tag = $this->tag->create(array('name' => trim($t)));
+            }
+            $taggable_tag = array(
+              'tag_id' => $tag['id'],
+              'taggable_id' => $screencast['id'],
+              'taggable_type' => 'screencasts'
+            );
+            $this->db->insert('taggable_tags', $taggable_tag);
+          }
         }
-        $taggable_tag = array(
-          'tag_id' => $tag['id'],
-          'taggable_id' => $screencast['id'],
-          'taggable_type' => 'screencasts'
-        );
-        $this->db->insert('taggable_tags', $taggable_tag);
       }
     }
 
@@ -64,6 +73,15 @@
     public function get_comments($screencast) {
       $this->load->model('comment_model', 'comment');
       return $this->comment->find_by(array('commentable_type' => 'screencasts', 'commentable_id' => $screencast['id']));
+    }
+
+    private function _validate_screencast($screencast) {
+      if (strlen(trim($screencast['title'])) == 0) {
+        return array('result' => false, 'message' => 'Please provide a screencast title.');
+      } else if (strlen(trim($screencast['video_url'])) == 0) {
+        return array('result' => false, 'message' => 'Please provide the URL to the screencast video.');
+      }
+      return array('result' => true);
     }
 
   }

@@ -27,6 +27,10 @@
     }
 
     public function create($post) {
+      $post_validation = $this->_validate_post($post);
+      if (!$post_validation['result']) {
+        return array('error' => $post_validation['message']);
+      }
       $this->db->insert('posts', $post);
       $post = $this->find($this->db->insert_id());
       $post['slug'] = $post['id'] . '-' . url_title($post['title'], '-', true);
@@ -40,18 +44,23 @@
     }
 
     public function tag($post, $tags) {
-      $this->load->model('tag_model', 'tag');
-      foreach ($tags as $t) {
-        $tag = $this->tag->find_by(array('name' => trim($t)));
-        if (empty($tag)) {
-          $tag = $this->tag->create(array('name' => trim($t)));
+      if (strlen(trim($tags)) > 0) {
+        $tags = explode(',', $tags);
+        $this->load->model('tag_model', 'tag');
+        foreach ($tags as $t) {
+          if (strlen(trim($t)) > 0) {
+            $tag = $this->tag->find_by(array('name' => trim($t)));
+            if (empty($tag)) {
+              $tag = $this->tag->create(array('name' => trim($t)));
+            }
+            $taggable_tag = array(
+              'tag_id' => $tag['id'],
+              'taggable_id' => $post['id'],
+              'taggable_type' => 'posts'
+            );
+            $this->db->insert('taggable_tags', $taggable_tag);
+          }
         }
-        $taggable_tag = array(
-          'tag_id' => $tag['id'],
-          'taggable_id' => $post['id'],
-          'taggable_type' => 'posts'
-        );
-        $this->db->insert('taggable_tags', $taggable_tag);
       }
     }
 
@@ -89,6 +98,15 @@
       }
       shuffle($related_posts);
       return array_slice($related_posts, 0, $RELATED_ITEMS_COUNT);
+    }
+
+    private function _validate_post($post) {
+      if (strlen(trim($post['title'])) == 0) {
+        return array('result' => false, 'message' => 'Please provide a post title');
+      } else if (strlen(trim($post['content'])) == 0) {
+        return array('result' => false, 'message' => 'Post content should not be empty.');
+      }
+      return array('result' => true);
     }
 
   }

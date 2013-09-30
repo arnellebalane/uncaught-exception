@@ -14,10 +14,10 @@
         <div class="item clearfix">
           <?= form_open('posts/create', array('class' => 'main')); ?>
             <div class="field">
-              <input type="text" name="title" placeholder="Title" autocomplete="off" spellcheck="false" />
+              <input type="text" name="title" placeholder="Title" autocomplete="off" spellcheck="false" required />
             </div>
             <div class="field">
-              <textarea name="content" placeholder="" spellcheck="false"></textarea>
+              <textarea name="content" placeholder="" spellcheck="false" required></textarea>
             </div>
             <div class="field">
               <input type="text" name="tags" placeholder="Tags (comma-separated)" autocomplete="off" spellcheck="false" />

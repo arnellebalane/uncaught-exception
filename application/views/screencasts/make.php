@@ -16,10 +16,10 @@
             <div class="video"></div>
             <?= form_open('screencasts/create'); ?>
               <div class="field">
-                <input type="text" name="title" placeholder="Title" />
+                <input type="text" name="title" placeholder="Title" required />
               </div>
               <div class="field">
-                <input type="text" name="link" placeholder="Video URL" />
+                <input type="text" name="video_url" placeholder="Video URL" required />
               </div>
               <div class="field">
                 <textarea name="description"></textarea>
