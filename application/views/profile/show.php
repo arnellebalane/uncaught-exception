@@ -26,7 +26,7 @@
           <label>Find Me Online</label>
           <ul class="social-links">
             <?php foreach ($social_network_connections as $connection): ?>
-              <li><?= anchor('#', $connection['handle'], array('class' => 'link', 'id' => strtolower(str_replace(' ', '-', $connection['name'])))); ?></li>
+              <li><?= anchor('#', $connection['handle'], array('class' => 'link', 'id' => format_network_name($connection))); ?></li>
             <?php endforeach; ?>
           </ul>
         </div>

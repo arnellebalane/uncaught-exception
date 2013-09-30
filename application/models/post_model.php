@@ -71,7 +71,9 @@
 
     public function get_user($post) {
       $this->load->model('user_model', 'user');
-      return $this->user->find($post['user_id']);
+      $user = $this->user->find($post['user_id']);
+      $user['networks'] = $this->user->get_networks($user['id']);
+      return $user;
     }
 
     public function get_tags($post) {

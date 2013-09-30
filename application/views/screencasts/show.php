@@ -77,28 +77,13 @@
             <section id="user-profile">
               <?= profile_picture($user['profile_picture']); ?>
               <?= anchor('profile/show/' . $user['id'], fullname($user), array('id' => 'name')); ?>
-              <!---------------------- USER SOCIAL LINKS --------------------------
-              <ul class="social-links">
-                <li>
-                  <a href="#">
-                    <span class="link" id="facebook"></span>
-                    <p>arnellebalane</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <span class="link" id="twitter"></span>
-                    <p>@arnellebalane</p>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <span class="link" id="google-plus"></span>
-                    <p>arnellebalane</p>
-                  </a>
-                </li>
-              </ul>
-              ------------------------------------------------------------------------>
+              <?php if (!empty($user['networks'])): ?>
+                <ul class="social-links">
+                  <?php foreach ($user['networks'] as $network): ?>
+                    <li><?= anchor('#', '<span class="link" id="' . format_network_name($network) . '"></span><p>' . $network['handle'] . '</p>'); ?></li>
+                  <?php endforeach; ?>
+                </ul>
+              <?php endif; ?>
             </section>
           </aside>
         </div>

@@ -82,6 +82,13 @@
       }
     }
 
+    public function get_networks($id) {
+      $this->db->where('user_id', $id);
+      $this->db->join('social_networks', 'user_networks.social_network_id = social_networks.id', 'inner');
+      $networks = $this->db->get('user_networks');
+      return $networks->result_array();
+    }
+
     private function _validate_user($user_update) {
       if ($user_update['username'] == '') {
         return array('result' => false, 'message' => 'Please provide a username.');

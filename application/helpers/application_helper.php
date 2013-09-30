@@ -23,3 +23,7 @@
   function display_date($date) {
     return date('F d, Y', strtotime($date));
   }
+
+  function format_network_name($network) {
+    return strtolower(str_replace(' ', '-', $network['name']));
+  }

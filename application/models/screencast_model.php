@@ -62,7 +62,9 @@
 
     public function get_user($screencast) {
       $this->load->model('user_model', 'user');
-      return $this->user->find($screencast['user_id']);
+      $user = $this->user->find($screencast['user_id']);
+      $user['networks'] = $this->user->get_networks($user['id']);
+      return $user;
     }
 
     public function get_tags($screencast) {

@@ -47,7 +47,7 @@
             <?php foreach ($social_networks as $social_network): ?>
               <?php $connection = $this->social_network->get_user_connection($current_user['id'], $social_network['id']); ?>
               <?php $handle = empty($connection) ? '' : $connection['handle']; ?>
-              <input type="text" name="connections[<?= $social_network['id']; ?>]" class="link" id="<?= strtolower(str_replace(' ', '-', $social_network['name'])); ?>" value="<?= $handle; ?>" />
+              <input type="text" name="connections[<?= $social_network['id']; ?>]" class="link" id="<?= format_network_name($social_network); ?>" value="<?= $handle; ?>" />
             <?php endforeach; ?>
           </div>
           <div class="actions">
