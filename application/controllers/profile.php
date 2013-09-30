@@ -7,6 +7,7 @@
       $this->load->helper('application');
       $this->load->helper('profile');
       $this->load->model('user_model', 'user');
+      $this->load->model('social_network_model', 'social_network');
 
       $this->_determine_route();
       $this->_signed_in_filter();
@@ -18,11 +19,13 @@
         $id = $this->session->userdata('user_id');
       }
       $data['user'] = $this->user->find($id);
+      $data['social_network_connections'] = $this->social_network->get_user_connections($data['user']['id']);
       $this->load->view('profile/show', $data);
     }
 
     public function edit() {
       $data['user'] = $this->user->find($this->session->userdata('user_id'));
+      $data['social_networks'] = $this->social_network->all();
       $this->load->view('profile/edit', $data);
     }
 
@@ -39,8 +42,10 @@
         'password' => $this->input->post('password'),
         'password_confirmation' => $this->input->post('password_confirmation')
       );
+      $connections = $this->input->post('connections');
       $update = $this->user->update($user, $profile);
       if ($update['result']) {
+        $this->user->update_connections($user['id'], $connections);
         $this->session->set_flashdata('notice', $update['message']);
         redirect('profile/show');
       } else {

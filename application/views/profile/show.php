@@ -15,15 +15,19 @@
           <?= profile_picture($user['profile_picture']); ?>
           <div class="details">
             <h1><?= fullname($user); ?></h1>
-            <p><?= nl2br($user['about']); ?></p>
+            <?php if (strlen($user['about']) > 0): ?>
+              <p><?= nl2br($user['about']); ?></p>
+            <?php else: ?>
+              <h6><?= anchor('profile/edit', 'Edit your profile'); ?> to write something about you.</h6>
+            <?php endif; ?>
           </div>
         </div>
         <div id="user-connections">
           <label>Find Me Online</label>
           <ul class="social-links">
-            <li><a href="#" class="link" id="facebook">arnellebalane</a></li>
-            <li><a href="#" class="link" id="twitter">@arnellebalane</a></li>
-            <li><a href="#" class="link" id="google-plus">arnellebalane</a></li>
+            <?php foreach ($social_network_connections as $connection): ?>
+              <li><?= anchor('#', $connection['handle'], array('class' => 'link', 'id' => strtolower(str_replace(' ', '-', $connection['name'])))); ?></li>
+            <?php endforeach; ?>
           </ul>
         </div>
       </div>

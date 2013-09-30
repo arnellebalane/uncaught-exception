@@ -59,6 +59,29 @@
       $this->db->update('profiles', $profile);
     }
 
+    public function update_connections($id, $connections) {
+      $this->load->model('social_network_model', 'social_network');
+      foreach ($connections as $network_id => $handle) {
+        $connection_data = array(
+          'user_id' => intval($id),
+          'social_network_id' => $network_id,
+          'handle' => $handle
+        );
+        $connection = $this->social_network->get_user_connection($id, $network_id);
+        if (strlen(trim($handle)) > 0) {
+          if (empty($connection)) {
+            $this->social_network->create_connection($connection_data);
+          } else {
+            $this->social_network->update_connection($connection_data);
+          }
+        } else {
+          if (!empty($connection)) {
+            $this->social_network->delete_connection($connection);
+          }
+        }
+      }
+    }
+
     private function _validate_user($user_update) {
       if ($user_update['username'] == '') {
         return array('result' => false, 'message' => 'Please provide a username.');
