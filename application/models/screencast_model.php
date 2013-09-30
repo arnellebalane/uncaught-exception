@@ -77,6 +77,17 @@
       return $this->comment->find_by(array('commentable_type' => 'screencasts', 'commentable_id' => $screencast['id']));
     }
 
+    public function liked($screencast, $ip_address) {
+      $this->load->model('like_model', 'like');
+      $like = array(
+        'likeable_id' => $screencast['id'],
+        'likeable_type' => 'screencasts',
+        'ip_address' => $ip_address
+      );
+      $like = $this->like->find_by($like);
+      return !empty($like);
+    }
+
     private function _validate_screencast($screencast) {
       if (strlen(trim($screencast['title'])) == 0) {
         return array('result' => false, 'message' => 'Please provide a screencast title.');

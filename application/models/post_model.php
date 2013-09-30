@@ -102,6 +102,17 @@
       return array_slice($related_posts, 0, $RELATED_ITEMS_COUNT);
     }
 
+    public function liked($post, $ip_address) {
+      $this->load->model('like_model', 'like');
+      $like = array(
+        'likeable_id' => $post['id'],
+        'likeable_type' => 'posts',
+        'ip_address' => $ip_address
+      );
+      $like = $this->like->find_by($like);
+      return !empty($like);
+    }
+
     private function _validate_post($post) {
       if (strlen(trim($post['title'])) == 0) {
         return array('result' => false, 'message' => 'Please provide a post title');

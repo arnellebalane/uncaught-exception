@@ -50,6 +50,7 @@
       $data['tags'] = $this->post->get_tags($data['post']);
       $data['comments'] = $this->post->get_comments($data['post']);
       $data['related_posts'] = $this->post->get_related_posts($data['post']);
+      $data['liked'] = $this->post->liked($data['post'], $this->input->ip_address());
       $this->load->view('posts/show', $data);
     }
 

@@ -23,9 +23,14 @@
 
               <section id="stats">
                 <ul>
-                  <li><a href="#" class="stat" id="post-likes"></a></li>
-                  <li><a href="#" class="stat" id="post-comments"></a></li>
-                  <li><a href="#" class="stat" id="post-shares"></a></li>
+                  <li>
+                    <?php if ($liked): ?>
+                      <?= anchor('likes/destroy/posts/' . $post['id'], '&nbsp;', array('class' => 'stat highlighted', 'id' => 'item-likes')); ?>
+                    <?php else: ?>
+                      <?= anchor('likes/create/posts/' . $post['id'], '&nbsp;', array('class' => 'stat', 'id' => 'item-likes')); ?></li>
+                    <?php endif; ?>
+                  <li><a href="#" class="stat" id="item-comments"></a></li>
+                  <li><a href="#" class="stat" id="item-shares"></a></li>
                 </ul>
               </section>
             </header>
