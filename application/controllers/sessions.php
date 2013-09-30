@@ -25,7 +25,7 @@
         redirect('sessions/make');
       } else {
         $this->session->set_userdata('user_id', $user['id']);
-        redirect('profile/show/' . $user['id']);
+        redirect('profile/show');
       }
     }
 

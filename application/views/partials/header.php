@@ -21,6 +21,13 @@
         <?php endif; ?>
       </ul>
     </nav>
+
+    <?php if ($this->session->flashdata('error')): ?>
+      <p class="notification error"><?= $this->session->flashdata('error'); ?></p>
+    <?php elseif ($this->session->flashdata('notice')): ?>
+      <p class="notification notice"><?= $this->session->flashdata('notice'); ?></p>
+    <?php endif; ?>
+
   </div>
 </header>
 

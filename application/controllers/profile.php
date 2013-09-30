@@ -32,9 +32,21 @@
         'lastname' => $this->input->post('lastname'),
         'about' => $this->input->post('about')
       );
-      $user_id = $this->session->userdata('user_id');
-      $this->user->update_profile($user_id, $profile);
-      redirect('profile/show');
+      $user = array(
+        'id' => $this->session->userdata('user_id'),
+        'username' => $this->input->post('username'),
+        'email' => $this->input->post('email'),
+        'password' => $this->input->post('password'),
+        'password_confirmation' => $this->input->post('password_confirmation')
+      );
+      $update = $this->user->update($user, $profile);
+      if ($update['result']) {
+        $this->session->set_flashdata('notice', $update['message']);
+        redirect('profile/show');
+      } else {
+        $this->session->set_flashdata('error', $update['message']);
+        redirect('profile/edit');
+      }
     }
 
     private function _determine_route() {
