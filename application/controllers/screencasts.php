@@ -54,6 +54,23 @@
       }
     }
 
+    public function more() {
+      $offset = $this->input->post('offset');
+      $sort = $this->input->post('sort');
+      $screencasts = $this->screencast->get($this->BATCH_SIZE, $offset, $sort);
+      $data['total_count'] = $this->screencast->count();
+      foreach ($screencasts as $i => $screencast) {
+        $user = $this->screencast->get_user($screencast);
+        $data['screencasts'][$i]['title'] = $screencast['title'];
+        $data['screencasts'][$i]['url'] = site_url('screencasts/show/' . $screencast['slug']);
+        $data['screencasts'][$i]['date'] = date('F d, Y', strtotime($screencast['created_at']));
+        $data['screencasts'][$i]['user']['fullname'] = $user['firstname'] . ' ' . $user['lastname'];
+        $data['screencasts'][$i]['user']['url'] = site_url('profile/show/' . $user['id']);
+        $data['screencasts'][$i]['user']['profile_picture'] = base_url() . 'public/profile-pictures/' . $user['profile_picture'];
+      }
+      echo json_encode($data);
+    }
+
     private function _determine_route() {
       $controller = $this->uri->segment(1);
       $action = $this->uri->segment(2);

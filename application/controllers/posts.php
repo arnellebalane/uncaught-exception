@@ -54,6 +54,23 @@
       $this->load->view('posts/show', $data);
     }
 
+    public function more() {
+      $offset = $this->input->post('offset');
+      $sort = $this->input->post('sort');
+      $posts = $this->post->get($this->BATCH_SIZE, $offset, $sort);
+      $data['total_count'] = $this->post->count();
+      foreach ($posts as $i => $post) {
+        $user = $this->post->get_user($post);
+        $data['posts'][$i]['title'] = $post['title'];
+        $data['posts'][$i]['url'] = site_url('posts/show/' . $post['slug']);
+        $data['posts'][$i]['date'] = date('F d, Y', strtotime($post['created_at']));
+        $data['posts'][$i]['user']['fullname'] = $user['firstname'] . ' ' . $user['lastname'];
+        $data['posts'][$i]['user']['url'] = site_url('profile/show/' . $user['id']);
+        $data['posts'][$i]['user']['profile_picture'] = base_url() . 'public/profile-pictures/' . $user['profile_picture'];
+      }
+      echo json_encode($data);
+    }
+
     private function _determine_route() {
       $controller = $this->uri->segment(1);
       $action = $this->uri->segment(2);

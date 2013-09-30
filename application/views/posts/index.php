@@ -27,7 +27,7 @@
         </div>
 
         <?php if ($has_more): ?>
-          <a href="#" id="load-more">Load More Posts</a>
+          <a href="#" id="load-more" data-type="posts">Load More Posts</a>
         <?php endif; ?>
       </div>
     </div>

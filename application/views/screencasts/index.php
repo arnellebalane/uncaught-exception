@@ -30,7 +30,7 @@
         </div>
 
         <?php if ($has_more): ?>
-          <?= anchor('#', 'Load More Screencasts', array('id' => 'load-more')); ?>
+          <a href="#" id="load-more" data-type="screencasts">Load More Screencasts</a>
         <?php endif; ?>
       </div>
     </div>

@@ -64,7 +64,7 @@
         $this->db->join('(SELECT likeable_id FROM likes WHERE likeable_type = "screencasts") likes', 'likes.likeable_id = screencasts.id', 'left');
         $this->db->group_by('screencasts.id');
         $this->db->order_by('COUNT(likeable_id)', 'desc');
-        $screencasts = $this->db->get('screencasts');
+        $screencasts = $this->db->get('screencasts', $limit, $offset);
       }
       return $screencasts->result_array();
     }
