@@ -1,3 +1,5 @@
+@import "mixins";
+
 .wrapper {
   width: 1000px;
   margin: 0 auto;
@@ -61,3 +63,19 @@ form {
   }
 }
 
+p.notification {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  font: normal 1.3rem "Open Sans";
+  color: #ffffff;
+  padding: 8px 12px;
+  .transition(top, 500ms, ease);
+
+  &.shown {
+    top: 81px;
+  }
+
+  &.error { background-color: rgba(152, 9, 5, 0.85); }
+  &.notice { background-color: rgba(3, 87, 3, 0.85); }
+}
