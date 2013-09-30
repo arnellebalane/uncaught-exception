@@ -37,9 +37,7 @@
               </section>
             </header>
 
-            <div id="content">
-              <p><?= nl2br($screencast['description']) ?></p>
-            </div>
+            <div id="content" class="markdown"><?= $screencast['description']; ?></div>
 
             <?php if (!empty($comments)): ?>
               <section id="comments">

@@ -35,9 +35,7 @@
               </section>
             </header>
 
-            <div id="content">
-              <?= nl2br($post['content']); ?>
-            </div>
+            <div id="content" class="markdown"><?= $post['content']; ?></div>
 
             <?php if (!empty($comments)): ?>
               <section id="comments">
@@ -48,9 +46,7 @@
                       <h4><?= $comment['commentor_name']; ?></h4>
                     </header>
 
-                    <div class="comment-body">
-                      <p><?= nl2br($comment['content']); ?></p>
-                    </div>
+                    <div class="comment-body"><?= nl2br($comment['content']); ?></div>
                   </div>
                 <?php endforeach; ?>
               </section>

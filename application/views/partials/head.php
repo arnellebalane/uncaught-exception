@@ -23,4 +23,5 @@
 </script>
 <script src="<?= base_url() . 'assets/javascripts/jquery-2.js'; ?>"></script>
 <script src="<?= base_url() . 'assets/javascripts/less.js'; ?>"></script>
+<script src="<?= base_url() . 'assets/javascripts/js-markdown-extra.js'; ?>"></script>
 <script src="<?= base_url() . 'assets/javascripts/application.js'; ?>"></script>

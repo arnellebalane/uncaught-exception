@@ -1,14 +1,7 @@
 $(document).ready(function() {
-  item.initialize();
   notifications.initialize();
+  markdown.initialize();
 });
-
-var item = {
-  initialize: function() {
-    var height = Math.max($(".item .main").outerHeight(), $(".item .sidebar").outerHeight());
-    $(".item .main, .item .sidebar").outerHeight(height);
-  }
-};
 
 var notifications = {
   initialize: function() {
@@ -21,5 +14,16 @@ var notifications = {
     setTimeout(function() {
       notification.removeClass("shown");
     }, 2500);
+  }
+};
+
+var markdown = {
+  initialize: function() {
+    if ($(".markdown").length > 0) {
+      markdown.parse($(".markdown").first());
+    }
+  },
+  parse: function(element) {
+    element.html(Markdown(element.html()));
   }
 };
