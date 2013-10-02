@@ -29,7 +29,7 @@
                     <?php else: ?>
                       <?= anchor('likes/create/posts/' . $post['id'], '&nbsp;', array('class' => 'stat', 'id' => 'item-likes')); ?></li>
                     <?php endif; ?>
-                  <li><a href="#" class="stat" id="item-comments"></a></li>
+                  <li><a href="<?= empty($comments) ? '#comment-form' : '#comments'; ?>" class="stat" id="item-comments"></a></li>
                   <li><a href="#" class="stat" id="item-shares"></a></li>
                 </ul>
               </section>
