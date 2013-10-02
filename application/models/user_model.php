@@ -28,6 +28,23 @@
       return $user->row_array();
     }
 
+    public function create($user, $profile) {
+      $user_validation = $this->_validate_user($user);
+      $profile_validation = $this->_validate_profile($profile);
+      if (!$user_validation['result']) {
+        return array('error' => $user_validation['message']);
+      } else if (!$profile_validation['result']) {
+        return array('error' => $profile_validation['message']);
+      }
+      unset($user['password_confirmation']);
+      $user['password'] = md5($user['password']);
+      $this->db->insert('users', $user);
+      $user_id = $this->db->insert_id();
+      $profile['user_id'] = $user_id;
+      $this->db->insert('profiles', $profile);
+      return $this->find($user_id);
+    }
+
     public function update($user, $profile) {
       $user_id = $user['id'];
       $user_validation = $this->_validate_user($user);
@@ -89,28 +106,28 @@
       return $networks->result_array();
     }
 
-    private function _validate_user($user_update) {
-      if ($user_update['username'] == '') {
+    private function _validate_user($user) {
+      if ($user['username'] == '') {
         return array('result' => false, 'message' => 'Please provide a username.');
-      } else if ($user_update['email'] == '') {
+      } else if ($user['email'] == '') {
         return array('result' => false, 'message' => 'Please provide your email address.');
       }
-      $user = $this->find_by(array('username' => $user_update['username']));
-      if (!empty($user) && $user['id'] != $user_update['id']) {
+      $user_check = $this->find_by(array('username' => $user['username']));
+      if (!empty($user_check) && $user_check['id'] != $user['id']) {
         return array('result' => false, 'message' => 'Username already taken.');
       }
-      $user = $this->find_by(array('email' => $user_update['email']));
-      if (!empty($user) && $user['id'] != $user_update['id']) {
+      $user_check = $this->find_by(array('email' => $user['email']));
+      if (!empty($user_check) && $user_check['id'] != $user['id']) {
         return array('result' => false, 'message' => 'Email address already taken.');
       }
-      if ($user_update['password'] != $user_update['password_confirmation']) {
+      if ($user['password'] != $user['password_confirmation']) {
         return array('result' => false, 'message' => 'Passwords do not match.');
       }
-      return array('result' => true, 'remove_password' => ($user_update['password'] == ''));
+      return array('result' => true, 'remove_password' => ($user['password'] == ''));
     }
 
-    private function _validate_profile($profile_update) {
-      if (!$profile_update['firstname'] || !$profile_update['lastname']) {
+    private function _validate_profile($profile) {
+      if (!$profile['firstname'] || !$profile['lastname']) {
         return array('result' => false, 'message' => 'Please provide your name.');
       }
       return array('result' => true);

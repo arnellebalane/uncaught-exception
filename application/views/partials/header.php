@@ -17,7 +17,8 @@
             </ul>
           </li>
         <?php else: ?>
-          <li><?= anchor('sessions/make', 'Login', array('class' => navigation_link_class('sessions', $controller_name) . ' button-link')); ?></li>
+          <li><?= anchor('sessions/make', 'Sign In', array('class' => navigation_link_class('sessions', $controller_name) . ' button-link')); ?></li>
+          <li class="button"><?= anchor('registrations/make', 'Sign Up', array('class' => navigation_link_class('registrations', $controller_name) . ' button-link')); ?></li>
         <?php endif; ?>
       </ul>
     </nav>
