@@ -111,12 +111,13 @@
       return array_slice($related_posts, 0, $RELATED_ITEMS_COUNT);
     }
 
-    public function liked($post, $ip_address) {
+    public function liked($post, $like) {
       $this->load->model('like_model', 'like');
       $like = array(
         'likeable_id' => $post['id'],
         'likeable_type' => 'posts',
-        'ip_address' => $ip_address
+        'ip_address' => $like['ip_address'],
+        'user_id' => $like['user_id']
       );
       $like = $this->like->find_by($like);
       return !empty($like);

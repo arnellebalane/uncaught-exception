@@ -27,7 +27,11 @@
       $data['user'] = $this->screencast->get_user($data['screencast']);
       $data['tags'] = $this->screencast->get_tags($data['screencast']);
       $data['comments'] = $this->screencast->get_comments($data['screencast']);
-      $data['liked'] = $this->screencast->liked($data['screencast'], $this->input->ip_address());
+      $like = array(
+        'ip_address' => $this->input->ip_address(),
+        'user_id' => $this->_user_logged_in() ? $this->data['current_user']['id'] : 0
+      );
+      $data['liked'] = $this->screencast->liked($data['screencast'], $like);
       $this->load->view('screencasts/show', $data);
     }
 

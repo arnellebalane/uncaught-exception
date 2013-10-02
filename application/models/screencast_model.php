@@ -86,12 +86,13 @@
       return $this->comment->find_by(array('commentable_type' => 'screencasts', 'commentable_id' => $screencast['id']));
     }
 
-    public function liked($screencast, $ip_address) {
+    public function liked($screencast, $like) {
       $this->load->model('like_model', 'like');
       $like = array(
         'likeable_id' => $screencast['id'],
         'likeable_type' => 'screencasts',
-        'ip_address' => $ip_address
+        'ip_address' => $like['ip_address'],
+        'user_id' => $like['user_id']
       );
       $like = $this->like->find_by($like);
       return !empty($like);
