@@ -11,10 +11,6 @@
 
     <div id="content-area">
       <?= form_open('sessions/create'); ?>
-        <?php if ($this->session->flashdata('error')): ?>
-          <p class="error"><?= $this->session->flashdata('error'); ?></p>
-        <?php endif; ?>
-
         <div class="field">
           <input type="text" name="username" placeholder="Username" autofocus="true" />
         </div>
