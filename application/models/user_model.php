@@ -106,6 +106,16 @@
       return $networks->result_array();
     }
 
+    public function get_posts($id) {
+      $this->load->model('post_model', 'post');
+      return $this->post->where(array('user_id' => $id));
+    }
+
+    public function get_screencasts($id) {
+      $this->load->model('screencast_model', 'screencast');
+      return $this->screencast->where(array('user_id' => $id));
+    }
+
     private function _validate_user($user) {
       if ($user['username'] == '') {
         return array('result' => false, 'message' => 'Please provide a username.');

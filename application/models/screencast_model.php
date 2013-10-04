@@ -17,6 +17,12 @@
       return $screencast->row_array();
     }
 
+    public function where($screencast) {
+      $this->db->where($screencast);
+      $screencasts = $this->db->get('screencasts');
+      return $screencasts->result_array();
+    }
+
     public function create($screencast) {
       $screencast_validation = $this->_validate_screencast($screencast);
       if (!$screencast_validation['result']) {

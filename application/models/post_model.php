@@ -17,6 +17,12 @@
       return $post->row_array();
     }
 
+    public function where($post) {
+      $this->db->where($post);
+      $posts = $this->db->get('posts');
+      return $posts->result_array();
+    }
+
     public function find_by_tag($tag) {
       $this->db->select('posts.*');
       $this->db->join('taggable_tags', 'posts.id = taggable_tags.taggable_id', 'inner');

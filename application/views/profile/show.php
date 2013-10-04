@@ -35,6 +35,50 @@
             </ul>
           </div>
         <?php endif; ?>
+
+        <div id="user-activities">
+          <section class="clearfix" >
+            <h4><?= $user['id'] == $current_user['id'] ? 'Your' : $user['firstname'] . '\''; ?> Posts</h4>
+            <?php if (empty($posts)): ?>
+              <h5><?= $user['id'] == $current_user['id'] ? 'You' : $user['firstname'] . '\''; ?> have not posted anything yet.</h5>
+            <?php endif; ?>
+            <?php foreach ($posts as $post): ?>
+              <div class="activity">
+                <?= anchor('posts/show/' . $post['slug'], $post['title']); ?>
+                <footer>
+                  <time><?= display_date($post['created_at']); ?></time>
+                  <?php if ($user['id'] == $current_user['id']): ?>
+                    <ul>
+                      <li><?= anchor('#', 'Edit'); ?></li>
+                      <li><?= anchor('#', 'Delete'); ?></li>
+                    </ul>
+                  <?php endif; ?>
+                </footer>
+              </div>
+            <?php endforeach; ?>
+          </section>
+
+          <section class="clearfix" >
+            <h4><?= $user['id'] == $current_user['id'] ? 'Your' : $user['firstname'] . '\''; ?> Screencasts</h4>
+            <?php if (empty($screencasts)): ?>
+              <h5><?= $user['id'] == $current_user['id'] ? 'You' : $user['firstname'] . '\''; ?> have no screencasts yet.</h5>
+            <?php endif; ?>
+            <?php foreach ($screencasts as $screencast): ?>
+              <div class="activity">
+                <?= anchor('screencasts/show/' . $screencast['slug'], $screencast['title']); ?>
+                <footer class="clearfix">
+                  <time><?= display_date($screencast['created_at']); ?></time>
+                  <?php if ($user['id'] == $current_user['id']): ?>
+                    <ul>
+                      <li><?= anchor('#', 'Edit'); ?></li>
+                      <li><?= anchor('#', 'Delete'); ?></li>
+                    </ul>
+                  <?php endif; ?>
+                </footer>
+              </div>
+            <?php endforeach; ?>
+          </section>
+        </div>
       </div>
     </div>
 

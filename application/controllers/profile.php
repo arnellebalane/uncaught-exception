@@ -20,6 +20,8 @@
       }
       $data['user'] = $this->user->find($id);
       $data['social_network_connections'] = $this->social_network->get_user_connections($data['user']['id']);
+      $data['posts'] = $this->user->get_posts($data['user']['id']);
+      $data['screencasts'] = $this->user->get_screencasts($data['user']['id']);
       $this->load->view('profile/show', $data);
     }
 
