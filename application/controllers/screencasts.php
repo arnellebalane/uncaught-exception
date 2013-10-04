@@ -44,7 +44,8 @@
         'user_id' => $this->session->userdata('user_id'),
         'title' => $this->input->post('title'),
         'description' => $this->input->post('description'),
-        'video_url' => $this->input->post('video_url')
+        'video_url' => $this->input->post('video_url'),
+        'video_embed_url' => $this->input->post('video_embed_url')
       );
       $tags = $this->input->post('tags');
       $screencast = $this->screencast->create($screencast);

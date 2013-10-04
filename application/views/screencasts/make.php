@@ -13,13 +13,17 @@
       <div class="wrapper">
         <div class="item">
           <div class="main">
-            <div class="video"></div>
+            <div id="video">
+              <iframe width="700" height="420"></iframe>
+              <div id="loader"></div>
+            </div>
             <?= form_open('screencasts/create'); ?>
               <div class="field">
                 <input type="text" name="title" placeholder="Title" required />
               </div>
               <div class="field">
-                <input type="text" name="video_url" placeholder="Video URL" required />
+                <input type="text" name="video_url" placeholder="Video URL" id="video-url" required />
+                <input type="hidden" name="video_embed_url" id="video-embed-url" />
               </div>
               <div class="field">
                 <textarea name="description"></textarea>

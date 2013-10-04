@@ -13,7 +13,9 @@
       <div class="wrapper">
         
         <div class="item clearfix">
-          <div class="video"></div>
+          <div id="video">
+            <iframe src="<?= $screencast['video_embed_url']; ?>" width="1000" height="580"></iframe>
+          </div>
           <div class="main">
             <header class="clearfix">
               <h1><?= $screencast['title']; ?></h1>

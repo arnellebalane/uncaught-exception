@@ -103,6 +103,8 @@
         return array('result' => false, 'message' => 'Please provide a screencast title.');
       } else if (strlen(trim($screencast['video_url'])) == 0) {
         return array('result' => false, 'message' => 'Please provide the URL to the screencast video.');
+      } else if (!preg_match('/(youtube|vimeo).com/', trim($screencast['video_url']))) {
+        return array('result' => false, 'message' => 'Only videos hosted on Youtube and Vimeo are supported for now.');
       }
       return array('result' => true);
     }

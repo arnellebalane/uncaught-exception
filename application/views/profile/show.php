@@ -17,7 +17,7 @@
             <h1><?= fullname($user); ?></h1>
             <?php if (strlen($user['about']) > 0): ?>
               <p><?= nl2br($user['about']); ?></p>
-            <?php elseif (strlen($user['about']) > 0 && user_logged_in() && $user['id'] == $current_user['id']): ?>
+            <?php elseif (strlen($user['about']) == 0 && user_logged_in() && $user['id'] == $current_user['id']): ?>
               <h6><?= anchor('profile/edit', 'Edit your profile'); ?> to write something about you.</h6>
             <?php endif; ?>
           </div>

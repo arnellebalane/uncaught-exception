@@ -4,6 +4,7 @@ $(document).ready(function() {
   notifications.initialize();
   markdown.initialize();
   loadMore.initialize();
+  screencasts.initialize();
 });
 
 var notifications = {
@@ -102,5 +103,46 @@ var loadMore = {
                       </div>";
       $(".items-list").append(template);
     }
+  }
+};
+
+var screencasts = {
+  initialize: function() {
+    $("#video-url").change(function() {
+      if ($(this).val().length > 0) {
+        screencasts.loadVideo($(this).val());
+      } else {
+        $("#video-embed-url").val("");
+        $("#video, #loader").hide();
+      }
+    });
+    screencasts.redirectClick();
+  },
+  loadVideo: function(url) {
+    $("#video, #loader").show();
+    $("#video iframe").hide();
+    if (url.match("youtube.com")) {
+      var id = url.split("=")[1];
+      $("#video-embed-url").val("http://www.youtube.com/embed/" + id);
+    } else if (url.match("vimeo.com")) {
+      var id = url.split("/");
+      id = id[id.length - 1];
+      $("#video-embed-url").val("http://player.vimeo.com/video/" + id + "?title=0&byline=0&portrait=0");
+    } else {
+      $("#video-embed-url").val("");
+      $("#video, #loader").hide();
+    }
+    $("#video iframe").attr("src", $("#video-embed-url").val()).load(function() {
+      $("#video #loader").hide();
+      $("#video iframe").show();
+    });
+  },
+  redirectClick: function() {
+    $(".item-thumbnail .video").click(function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log($(this));
+      top.location.href = $(this).siblings("aside").find(".title").attr("href");
+    });
   }
 };

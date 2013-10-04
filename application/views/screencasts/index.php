@@ -15,7 +15,9 @@
         <div class="items-list clearfix">
           <?php foreach ($screencasts as $screencast): ?>
             <div class="item-thumbnail">
-              <div class="video"></div>
+              <div class="video">
+                <iframe src="<?= $screencast['video_embed_url']; ?>" width="180" height="120"></iframe>
+              </div>
               <aside>
                 <?= anchor('screencasts/show/' . $screencast['slug'], $screencast['title'], array('class' => 'title')); ?>
                 <footer>
