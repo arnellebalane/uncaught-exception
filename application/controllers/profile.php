@@ -45,14 +45,41 @@
         'password_confirmation' => $this->input->post('password_confirmation')
       );
       $connections = $this->input->post('connections');
-      $update = $this->user->update($user, $profile);
+      $update = $this->user->update($user, $profile, $connections);
+      $profile_picture_update = $this->_update_profile_picture();
       if ($update['result']) {
-        $this->user->update_connections($user['id'], $connections);
-        $this->session->set_flashdata('notice', $update['message']);
-        redirect('profile/show');
+        if ($profile_picture_update['result']) {
+          if (array_key_exists('data', $profile_picture_update)) {
+            $this->user->update_profile($user['id'], array('profile_picture' => $profile_picture_update['data']['file_name']));
+          }
+          $this->session->set_flashdata('notice', $update['message']);
+          redirect('profile/show');
+        } else {
+          $this->session->set_flashdata('error', $profile_picture_update['message']);
+          redirect('profile/edit');
+        }
       } else {
         $this->session->set_flashdata('error', $update['message']);
         redirect('profile/edit');
+      }
+    }
+
+    private function _update_profile_picture() {
+      if ($_FILES['userfile']['size'] > 0) {
+        $config = array(
+          'upload_path' => './public/profile-pictures/',
+          'allowed_types' => 'jpg|jpeg|png|bmp',
+          'overwrite' => false,
+          'encrypt_name' => true
+        );
+        $this->load->library('upload', $config);
+        if ($this->upload->do_upload()) {
+          return array('result' => true, 'data' => $this->upload->data());
+        } else {
+          return array('result' => false, 'message' => $this->upload->display_errors());
+        }
+      } else {
+        return array('result' => true);
       }
     }
 

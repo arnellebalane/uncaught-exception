@@ -11,9 +11,16 @@
 
     <div id="content-area">
       <div class="wrapper">
-        <?= form_open('profile/update'); ?>
+        <?= form_open_multipart('profile/update'); ?>
           <div id="user-profile" class="clearfix">
-            <?= profile_picture($user['profile_picture']); ?>
+            <div id="profile-picture-wrapper">
+              <?= profile_picture($user['profile_picture']); ?>
+              <div id="new-profile-picture">
+                <input type="file" name="userfile" id="userfile" accept="image/*" />
+              </div>
+              <p id="userfile-hook">Change</p>
+              <p id="cancel-profile-picture">Cancel</p>
+            </div>
             <div class="details">
               <input type="text" name="firstname" value="<?= $user['firstname']; ?>" placeholder="Firstname" autocomplete="off" spellcheck="false" required />
               <input type="text" name="lastname" value="<?= $user['lastname']; ?>" placeholder="Lastname" autocomplete="off" spellcheck="false" required />

@@ -5,6 +5,7 @@ $(document).ready(function() {
   markdown.initialize();
   loadMore.initialize();
   screencasts.initialize();
+  profilePicture.initialize();
 });
 
 var notifications = {
@@ -141,8 +142,35 @@ var screencasts = {
     $(".item-thumbnail .video").click(function(e) {
       e.preventDefault();
       e.stopPropagation();
-      console.log($(this));
       top.location.href = $(this).siblings("aside").find(".title").attr("href");
     });
+  }
+};
+
+var profilePicture = {
+  initialize: function() {
+    $("#userfile-hook").click(function() {
+      $("#userfile").click();
+    });
+    $("#cancel-profile-picture").click(function() {
+      profilePicture.hidePreview();
+    });
+    $("#userfile").change(profilePicture.previewProfilePicture);
+  },
+  previewProfilePicture: function() {
+    var file = document.getElementById("userfile").files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function(e) {
+      $("#new-profile-picture").css({"background-image": "url(" + e.target.result + ")"});
+      $("#cancel-profile-picture").show();
+      $("#userfile-hook").hide();
+    }
+  },
+  hidePreview: function() {
+    $("#new-profile-picture").css({"background-image": ""});
+    $("#userfile-hook").show();
+    $("#cancel-profile-picture").hide();
+    $("#userfile").val("")
   }
 };

@@ -45,7 +45,7 @@
       return $this->find($user_id);
     }
 
-    public function update($user, $profile) {
+    public function update($user, $profile, $connections) {
       $user_id = $user['id'];
       $user_validation = $this->_validate_user($user);
       $profile_validation = $this->_validate_profile($profile);
@@ -63,6 +63,7 @@
       }
       $this->update_user($user_id, $user);
       $this->update_profile($user_id, $profile);
+      $this->update_connections($user_id, $connections);
       return array('result' => true, 'message' => 'Profile successfully updated.');
     }
 
