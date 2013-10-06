@@ -13,6 +13,12 @@
       return $like->row_array();
     }
 
+    public function where($like) {
+      $this->db->where($like);
+      $likes = $this->db->get('likes');
+      return $likes->result_array();
+    }
+
     public function create($like) {
       $this->db->insert('likes', $like);
     }

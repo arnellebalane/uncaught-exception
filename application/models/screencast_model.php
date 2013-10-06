@@ -92,6 +92,11 @@
       return $this->comment->find_by(array('commentable_type' => 'screencasts', 'commentable_id' => $screencast['id']));
     }
 
+    public function get_likes($screencast) {
+      $this->load->model('like_model', 'like');
+      return $this->like->where(array('likeable_id' => $screencast['id'], 'likeable_type' => 'screencasts'));
+    }
+
     public function liked($screencast, $like) {
       $this->load->model('like_model', 'like');
       $like = array(

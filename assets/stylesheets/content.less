@@ -127,11 +127,20 @@
       border: 4px solid rgba(200, 200, 200, 0.2);
       border-radius: 50%;
       background: #DFE3E7 no-repeat;
-      background-position: center center;
+      background-position: -20px center;
       background-clip: content-box;
+      font: bold 1.2rem "Open Sans";
+      color: #333333;
+      text-align: center;
+      text-shadow: 1px 0 0 #333333;
+      text-indent: -3px;
+      line-height: 3rem;
+      .transition(text-indent background-position, 250ms, ease);
 
-      &:hover, &:focus {
+      &:hover, &:focus, &.indented {
         background-color: #BFCBD1;
+        background-position: center center;
+        text-indent: 30px;
       }
 
       &.highlighted {

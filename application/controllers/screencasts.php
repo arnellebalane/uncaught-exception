@@ -27,6 +27,7 @@
       $data['user'] = $this->screencast->get_user($data['screencast']);
       $data['tags'] = $this->screencast->get_tags($data['screencast']);
       $data['comments'] = $this->screencast->get_comments($data['screencast']);
+      $data['likes_count'] = count($this->screencast->get_likes($data['screencast']));
       $like = array(
         'ip_address' => $this->input->ip_address(),
         'user_id' => $this->_user_logged_in() ? $this->data['current_user']['id'] : 0

@@ -50,6 +50,7 @@
       $data['tags'] = $this->post->get_tags($data['post']);
       $data['comments'] = $this->post->get_comments($data['post']);
       $data['related_posts'] = $this->post->get_related_posts($data['post']);
+      $data['likes_count'] = count($this->post->get_likes($data['post']));
       $like = array(
         'ip_address' => $this->input->ip_address(),
         'user_id' => $this->_user_logged_in() ? $this->data['current_user']['id'] : 0

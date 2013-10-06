@@ -117,6 +117,11 @@
       return array_slice($related_posts, 0, $RELATED_ITEMS_COUNT);
     }
 
+    public function get_likes($post) {
+      $this->load->model('like_model', 'like');
+      return $this->like->where(array('likeable_id' => $post['id'], 'likeable_type' => 'posts'));
+    }
+
     public function liked($post, $like) {
       $this->load->model('like_model', 'like');
       $like = array(

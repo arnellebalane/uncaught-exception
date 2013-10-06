@@ -29,11 +29,11 @@
                 <ul>
                   <li>
                     <?php if ($liked): ?>
-                      <?= anchor('likes/destroy/screencasts/' . $screencast['id'], '&nbsp;', array('class' => 'stat highlighted', 'id' => 'item-likes')); ?>
+                      <?= anchor('likes/destroy/screencasts/' . $screencast['id'], $likes_count, array('class' => 'stat highlighted ' . ($likes_count == 0 ? 'indented' : ''), 'id' => 'item-likes')); ?>
                     <?php else: ?>
-                      <?= anchor('likes/create/screencasts/' . $screencast['id'], '&nbsp;', array('class' => 'stat', 'id' => 'item-likes')); ?>
+                      <?= anchor('likes/create/screencasts/' . $screencast['id'], $likes_count, array('class' => 'stat ' . ($likes_count == 0 ? 'indented' : ''), 'id' => 'item-likes')); ?>
                     <?php endif; ?>
-                  <li><a href="<?= empty($comments) ? '#comment-form' : '#comments'; ?>" class="stat" id="item-comments"></a></li>
+                  <li><a href="<?= empty($comments) ? '#comment-form' : '#comments'; ?>" class="stat <?= count($comments) == 0 ? 'indented' : ''; ?>" id="item-comments"><?= count($comments); ?></a></li>
                   <li><a href="#" class="stat" id="item-shares"></a></li>
                 </ul>
               </section>
