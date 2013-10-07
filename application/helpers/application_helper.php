@@ -31,3 +31,7 @@
   function social_network_url($network) {
     return str_replace('[:handle]', $network['handle'], $network['base_url']);
   }
+
+  function restore_value($inputs, $field) {
+    return array_key_exists($field, $inputs) ? $inputs[$field] : '';
+  }

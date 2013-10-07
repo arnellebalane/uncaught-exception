@@ -12,16 +12,16 @@
     <div id="content-area">
       <?= form_open('registrations/create'); ?>
         <div class="field">
-          <input type="text" name="firstname" placeholder="Firstname" spellcheck="false" autofocus="true" required />
+          <input type="text" name="firstname" placeholder="Firstname" spellcheck="false" autofocus="true" value="<?= restore_value($registration, 'firstname'); ?>" required />
         </div>
         <div class="field">
-          <input type="text" name="lastname" placeholder="Lastname" spellcheck="false" required />
+          <input type="text" name="lastname" placeholder="Lastname" spellcheck="false"  value="<?= restore_value($registration, 'lastname'); ?>" required />
         </div>
         <div class="field">
-          <input type="email" name="email" placeholder="Email address" spellcheck="false" required />
+          <input type="email" name="email" placeholder="Email address" spellcheck="false"  value="<?= restore_value($registration, 'email'); ?>" required />
         </div>
         <div class="field">
-          <input type="text" name="username" placeholder="Username" spellcheck="false" required />
+          <input type="text" name="username" placeholder="Username" spellcheck="false"  value="<?= restore_value($registration, 'username'); ?>" required />
         </div>
         <div class="field">
           <input type="password" name="password" placeholder="Password" required />

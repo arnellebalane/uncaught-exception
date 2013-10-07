@@ -11,7 +11,11 @@
     }
 
     public function make() {
-      $this->load->view('registrations/make');
+      $data['registration'] = array();
+      if ($this->session->flashdata('registration')) {
+        $data['registration'] = $this->session->flashdata('registration');
+      }
+      $this->load->view('registrations/make', $data);
     }
 
     public function create() {
@@ -25,8 +29,10 @@
         'firstname' => $this->input->post('firstname'),
         'lastname' => $this->input->post('lastname')
       );
+      $registration = array_merge($user, $profile);
       $user = $this->user->create($user, $profile);
       if (array_key_exists('error', $user)) {
+        $this->session->set_flashdata('registration', $registration);
         $this->session->set_flashdata('error', $user['error']);
         redirect('registrations/make');
       } else {

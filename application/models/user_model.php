@@ -29,6 +29,7 @@
     }
 
     public function create($user, $profile) {
+      $user['id'] = 0;
       $user_validation = $this->_validate_user($user);
       $profile_validation = $this->_validate_profile($profile);
       if (!$user_validation['result']) {
@@ -36,6 +37,7 @@
       } else if (!$profile_validation['result']) {
         return array('error' => $profile_validation['message']);
       }
+      unset($user['id']);
       unset($user['password_confirmation']);
       $user['password'] = md5($user['password']);
       $this->db->insert('users', $user);
