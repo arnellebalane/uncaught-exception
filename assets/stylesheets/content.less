@@ -116,6 +116,49 @@
     li {
       display: inline-block;
       margin-left: 5px;
+      position: relative;
+
+      &:hover #share-links {
+        display: inline-block;
+      }
+
+      #share-links {
+        display: none;
+        position: absolute;
+        width: 26px;
+        top: -7px;
+        left: 43px;
+        padding-top: 5px;
+        background-color: #dfe3e7;
+        border-radius: 3px;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 21px;
+          left: -5px;
+          border-right: 6px solid #dfe3e7;
+          border-top: 6px solid transparent;
+          border-bottom: 6px solid transparent;
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -25px;
+          bottom: 0;
+          width: 50px;
+          z-index: 0;
+        }
+      }
+
+      .stLarge {
+        width: 20px;
+        height: 20px;
+        background-size: contain;
+        background-position: center center;
+      }
     }
 
     .stat {
@@ -135,6 +178,8 @@
       text-shadow: 1px 0 0 #333333;
       text-indent: -3px;
       line-height: 3rem;
+      position: relative;
+      z-index: 1;
       .transition(text-indent background-position, 250ms, ease);
 
       &:hover, &:focus, &.indented {

@@ -30,7 +30,13 @@
                       <?= anchor('likes/create/posts/' . $post['id'], $likes_count, array('class' => 'stat ' . ($likes_count == 0 ? 'indented' : ''), 'id' => 'item-likes')); ?></li>
                     <?php endif; ?>
                   <li><a href="<?= empty($comments) ? '#comment-form' : '#comments'; ?>" class="stat <?= count($comments) == 0 ? 'indented' : ''; ?>" id="item-comments"><?= count($comments); ?></a></li>
-                  <li><a href="#" class="stat" id="item-shares"></a></li>
+                  <li>
+                    <a href="#" class="stat" id="item-shares"></a>
+                    <div id="share-links">
+                      <span class='share-link st_facebook_large' displayText='Facebook'></span>
+                      <span class='share-link st_twitter_large' displayText='Tweet'></span>
+                    </div>
+                  </li>
                 </ul>
               </section>
             </header>

@@ -25,3 +25,12 @@
 <script src="<?= base_url() . 'assets/javascripts/less.js'; ?>"></script>
 <script src="<?= base_url() . 'assets/javascripts/js-markdown-extra.js'; ?>"></script>
 <script src="<?= base_url() . 'assets/javascripts/application.js'; ?>"></script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">
+  stLight.options({
+    publisher: "13362950-ecc1-49e2-9673-03049c80a2f7", 
+    doNotHash: false, 
+    doNotCopy: false, 
+    hashAddressBar: true
+  });
+</script>
