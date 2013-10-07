@@ -1,0 +1,81 @@
+.screencasts .item-thumbnail {
+  width: 49%;
+  height: 150px;
+  padding: 15px;
+}
+
+.screencasts .item-thumbnail:nth-of-type(2n) {
+  margin-right: 0;
+}
+
+.screencasts .item-thumbnail .video {
+  display: inline-block;
+  width: 180px;
+  height: 120px;
+  background-color: #222222;
+  position: relative;
+}
+
+.screencasts .item-thumbnail .video:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.screencasts .item-thumbnail aside {
+  float: right;
+  display: inline-block;
+  vertical-align: top;
+  width: 250px;
+  font: normal 1.3rem/1 "Open Sans";
+  padding: 10px 10px 0 10px;
+}
+
+.screencasts .item-thumbnail .title {
+  height: 70px;
+}
+
+.screencasts.show #video {
+  width: 1000px;
+  height: 580px;
+  background: #111111;
+}
+
+.screencasts.make .main,
+.screencasts.edit .main {
+  float: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.screencasts.make .main #video,
+.screencasts.edit .main #video {
+  width: 700px;
+  height: 420px;
+  background-color: #222222;
+  position: relative;
+}
+
+.screencasts.make .main #video.hidden,
+.screencasts.edit .main #video.hidden {
+  display: none;
+}
+
+.screencasts.make .main #loader,
+.screencasts.edit .main #loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("../images/loader.gif") center center no-repeat;
+  background-size: 50px 50px;
+}
+
+.screencasts.make .main form,
+.screencasts.edit .main form {
+  padding: 50px;
+}

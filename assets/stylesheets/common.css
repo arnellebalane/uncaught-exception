@@ -1,0 +1,114 @@
+.wrapper {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.profile-picture {
+  display: inline-block;
+  border-radius: 50%;
+  background-position: center center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+form .field {
+  margin-bottom: 4px;
+}
+
+form .field:last-of-type {
+  margin: 0;
+}
+
+.social-links li {
+  display: inline-block;
+  margin: 0 0 0 5px;
+}
+
+.social-links .link {
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-indent: -1000px;
+  overflow: hidden;
+  background-position: center center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.social-links .link#facebook {
+  background-image: url("../images/facebook-icon.png");
+}
+
+.social-links .link#twitter {
+  background-image: url("../images/twitter-icon.png");
+}
+
+.social-links .link#google-plus {
+  background-image: url("../images/gplus-icon.png");
+}
+
+.social-links .link#tumblr {
+  background-image: url("../images/tumblr-icon.png");
+}
+
+.social-links .link#pinterest {
+  background-image: url("../images/pinterest-icon.png");
+}
+
+.social-links .link#linkedin {
+  background-image: url("../images/linkedin-icon.png");
+}
+
+.social-links .link#flickr {
+  background-image: url("../images/flickr-icon.png");
+}
+
+p.notification {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  font: normal 1.3rem "Open Sans";
+  color: #ffffff;
+  padding: 8px 12px;
+  -webkit-transition-property: top;
+  -webkit-transition-duration: 500ms;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-property: top;
+  -moz-transition-duration: 500ms;
+  -moz-transition-timing-function: ease;
+  -o-transition-property: top;
+  -o-transition-duration: 500ms;
+  -o-transition-timing-function: ease;
+  -ms-transition-property: top;
+  -ms-transition-duration: 500ms;
+  -ms-transition-timing-function: ease;
+  transition-property: top;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
+}
+
+p.notification.shown {
+  top: 81px;
+}
+
+p.notification.error {
+  background-color: rgba(152, 9, 5, 0.85);
+}
+
+p.notification.notice {
+  background-color: rgba(3, 87, 3, 0.85);
+}

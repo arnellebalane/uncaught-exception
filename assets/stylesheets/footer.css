@@ -1,0 +1,45 @@
+#footer-placeholder {
+  height: 200px;
+}
+
+#main-footer {
+  min-width: 1000px;
+  height: 40px;
+  margin-top: -70px;
+  padding: 15px 0;
+  background-color: #222222;
+  overflow: hidden;
+}
+
+#main-footer ul {
+  display: inline-block;
+}
+
+#main-footer #links {
+  margin-top: 2px;
+}
+
+#main-footer #links li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+#main-footer li a {
+  color: #AAAFAE;
+}
+
+#main-footer li a:hover,
+#main-footer li a:focus {
+  color: #E1E5E6;
+}
+
+#main-footer .social-links {
+  float: right;
+  margin-top: 5px;
+}
+
+#main-footer p {
+  font: normal 1.1rem "Open Sans";
+  color: #555555;
+  margin-top: 2px;
+}

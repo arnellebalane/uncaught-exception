@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  height: 100%;
+  background: url("../images/bg4.png") center top no-repeat fixed;
+  background-size: 100% 100%;
+}
+
+#main-wrapper {
+  min-height: 100%;
+}
+
+a {
+  font: normal 1.3rem "Open Sans";
+  color: #333333;
+  text-decoration: none;
+  outline: none;
+}
+a:hover,
+a:focus {
+  color: #973C0D;
+}
+
+ul {
+  font-size: 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  font: normal 1.3rem "Open Sans";
+  color: #333333;
+  padding: 5px;
+  margin: 0;
+  outline: none;
+}
+
+input[type="submit"] {
+  outline: none;
+}
+
+textarea {
+  font: normal 1.3rem "Open Sans";
+  color: #333333;
+  padding: 5px;
+  margin: 0;
+  outline: none;
+  resize: none;
+}
