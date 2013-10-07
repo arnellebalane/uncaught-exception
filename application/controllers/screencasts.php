@@ -93,6 +93,7 @@
 
     public function destroy($id) {
       $this->screencast->destroy($id);
+      $this->session->set_flashdata('notice', 'Screencast deleted.');
       redirect('profile/show');
     }
 

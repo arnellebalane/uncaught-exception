@@ -90,6 +90,7 @@
 
     public function destroy($id) {
       $this->post->destroy($id);
+      $this->session->set_flashdata('notice', 'Post deleted.');
       redirect('profile/show');
     }
 
