@@ -109,7 +109,7 @@
 
     public function get_comments($post) {
       $this->load->model('comment_model', 'comment');
-      return $this->comment->find_by(array('commentable_type' => 'posts', 'commentable_id' => $post['id']));
+      return $this->comment->where(array('commentable_type' => 'posts', 'commentable_id' => $post['id']));
     }
 
     public function get_related_posts($post) {

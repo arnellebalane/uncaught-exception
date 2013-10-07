@@ -47,6 +47,7 @@
                       $commentor['name'] = fullname($commentor);
                     } else {
                       $commentor = array(
+                        'id' => 0,
                         'profile_picture' => 'profile-picture.jpg',
                         'name' => $comment['commentor_name']
                       );
@@ -57,6 +58,9 @@
                     <header class="clearfix">
                       <?= profile_picture($commentor['profile_picture']); ?>
                       <h4><?= $commentor['name']; ?></h4>
+                      <?php if (user_logged_in() && ($commentor['id'] == $current_user['id'] || $post['user_id'] == $current_user['id'])): ?>
+                        <?= anchor('comments/destroy/' . $comment['id'], 'Delete'); ?>
+                      <?php endif; ?>
                     </header>
 
                     <div class="comment-body"><?= nl2br($comment['content']); ?></div>

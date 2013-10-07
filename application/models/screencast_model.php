@@ -100,7 +100,7 @@
 
     public function get_comments($screencast) {
       $this->load->model('comment_model', 'comment');
-      return $this->comment->find_by(array('commentable_type' => 'screencasts', 'commentable_id' => $screencast['id']));
+      return $this->comment->where(array('commentable_type' => 'screencasts', 'commentable_id' => $screencast['id']));
     }
 
     public function get_likes($screencast) {

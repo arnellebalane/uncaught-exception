@@ -39,8 +39,8 @@
     private function _determine_route() {
       $controller = $this->uri->segment(1);
       $action = $this->uri->segment(2);
-      $this->route['controller_name'] = ($controller) ? $controller : 'profile';
-      $this->route['action_name'] = ($action) ? $action : 'show';
+      $this->route['controller_name'] = ($controller) ? $controller : 'registrations';
+      $this->route['action_name'] = ($action) ? $action : 'make';
       $this->load->vars($this->route);
     }
 
