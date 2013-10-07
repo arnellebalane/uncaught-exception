@@ -49,7 +49,7 @@
                   <time><?= display_date($post['created_at']); ?></time>
                   <?php if (user_logged_in() && $user['id'] == $current_user['id']): ?>
                     <ul>
-                      <li><?= anchor('#', 'Edit'); ?></li>
+                      <li><?= anchor('posts/edit/' . $post['slug'], 'Edit'); ?></li>
                       <li><?= anchor('posts/destroy/' . $post['id'], 'Delete'); ?></li>
                     </ul>
                   <?php endif; ?>
@@ -70,7 +70,7 @@
                   <time><?= display_date($screencast['created_at']); ?></time>
                   <?php if (user_logged_in() && $user['id'] == $current_user['id']): ?>
                     <ul>
-                      <li><?= anchor('#', 'Edit'); ?></li>
+                      <li><?= anchor('screencasts/edit/' . $screencast['slug'], 'Edit'); ?></li>
                       <li><?= anchor('screencasts/destroy/' . $screencast['id'], 'Delete'); ?></li>
                     </ul>
                   <?php endif; ?>

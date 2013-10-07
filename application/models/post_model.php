@@ -45,6 +45,19 @@
       return $post;
     }
 
+    public function update($post_update) {
+      $post = $this->find($post_update['id']);
+      $post_validation = $this->_validate_post($post);
+      if (!$post_validation['result']) {
+        $post['error'] = $post_validation['message'];
+        return $post;
+      }
+      $post_update['slug'] = $post_update['id'] . '-' . url_title($post_update['title'], '-', true);
+      $this->db->where('id', $post_update['id']);
+      $this->db->update('posts', $post_update);
+      return $post_update;
+    }
+
     public function destroy($id) {
       $this->load->model('like_model', 'like');
       $this->load->model('comment_model', 'comment');
@@ -78,6 +91,37 @@
             $this->db->insert('taggable_tags', $taggable_tag);
           }
         }
+      }
+    }
+
+    public function retag($post, $tags) {
+      $current_tags = $this->get_tags($post);
+      $current_tags_id = array();
+      foreach ($current_tags as $tag) {
+        $current_tags_id[$tag['id']] = $tag;
+      }
+      if (strlen(trim($tags)) > 0) {
+        $tags = explode(',', $tags);
+        $this->load->model('tag_model', 'tag');
+        foreach ($tags as $t) {
+          $tag = $this->tag->find_by(array('name' => trim($t)));
+          if (empty($tag)) {
+            $tag = $this->tag->create(array('name' => trim($t)));
+          }
+          if ($this->tag->taggable_tagged(array('tag_id' => $tag['id'], 'taggable_id' => $post['id'], 'taggable_type' => 'posts'))) {
+            unset($current_tags_id[$tag['id']]);
+          } else {
+            $taggable_tag = array(
+              'tag_id' => $tag['id'],
+              'taggable_id' => $post['id'],
+              'taggable_type' => 'posts'
+            );
+            $this->db->insert('taggable_tags', $taggable_tag);
+          }
+        }
+      }
+      foreach ($current_tags_id as $id => $tag) {
+        $this->tag->untag(array('tag_id' => $id, 'taggable_id' => $post['id'], 'taggable_type' => 'posts'));
       }
     }
 

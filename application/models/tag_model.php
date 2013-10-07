@@ -28,6 +28,12 @@
       return $tags->result_array();
     }
 
+    public function taggable_tagged($taggable_tag) {
+      $this->db->where($taggable_tag);
+      $taggable_tag = $this->db->get('taggable_tags');
+      return $taggable_tag->num_rows() > 0;
+    }
+
     public function untag($tag) {
       $this->db->where($tag);
       $this->db->delete('taggable_tags');

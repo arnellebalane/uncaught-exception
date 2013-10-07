@@ -59,6 +59,35 @@
       $this->load->view('posts/show', $data);
     }
 
+    public function edit($slug) {
+      $data['post'] = $this->post->find_by(array('slug' => $slug));
+      $tags = $this->post->get_tags($data['post']);
+      $data['post']['tags'] = array();
+      foreach ($tags as $tag) {
+        array_push($data['post']['tags'], $tag['name']);
+      }
+      $data['post']['tags'] = implode(', ', $data['post']['tags']);
+      $this->load->view('posts/edit', $data);
+    }
+
+    public function update() {
+      $post = array(
+        'id' => $this->input->post('id'),
+        'title' => $this->input->post('title'),
+        'content' => $this->input->post('content')
+      );
+      $tags = $this->input->post('tags');
+      $post = $this->post->update($post);
+      if (array_key_exists('error', $post)) {
+        $this->session->set_flashdata('error', $post['error']);
+        redirect('posts/edit/' . $post['slug']);
+      } else {
+        $this->post->retag($post, $tags);
+        $this->session->set_flashdata('notice', 'Post updated.');
+        redirect('posts/show/' . $post['slug']);
+      }
+    }
+
     public function destroy($id) {
       $this->post->destroy($id);
       redirect('profile/show');
