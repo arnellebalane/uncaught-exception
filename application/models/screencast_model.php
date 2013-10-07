@@ -36,6 +36,17 @@
       return $screencast;
     }
 
+    public function destroy($id) {
+      $this->load->model('like_model', 'like');
+      $this->load->model('comment_model', 'comment');
+      $this->load->model('tag_model', 'tag');
+      $this->db->where('id', $id);
+      $this->db->delete('screencasts');
+      $this->like->destroy(array('likeable_id' => $id, 'likeable_type' => 'screencasts'));
+      $this->comment->destroy(array('commentable_id' => $id, 'commentable_type' => 'screencasts'));
+      $this->tag->untag(array('taggable_id' => $id, 'taggable_type' => 'screencasts'));
+    }
+
     public function count() {
       return $this->db->count_all('screencasts');
     }

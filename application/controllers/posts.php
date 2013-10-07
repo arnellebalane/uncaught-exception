@@ -59,6 +59,11 @@
       $this->load->view('posts/show', $data);
     }
 
+    public function destroy($id) {
+      $this->post->destroy($id);
+      redirect('profile/show');
+    }
+
     public function more() {
       $offset = $this->input->post('offset');
       $sort = $this->input->post('sort');
@@ -85,7 +90,7 @@
     }
 
     private function _signed_in_filter() {
-      $actions = array('make', 'create');
+      $actions = array('make', 'create', 'destroy');
       if (in_array($this->route['action_name'], $actions) && !$this->_user_logged_in()) {
         $this->session->set_flashdata('error', 'You must be logged in to view the page.');
         redirect('sessions/make');

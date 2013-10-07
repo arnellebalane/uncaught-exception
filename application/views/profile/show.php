@@ -50,7 +50,7 @@
                   <?php if (user_logged_in() && $user['id'] == $current_user['id']): ?>
                     <ul>
                       <li><?= anchor('#', 'Edit'); ?></li>
-                      <li><?= anchor('#', 'Delete'); ?></li>
+                      <li><?= anchor('posts/destroy/' . $post['id'], 'Delete'); ?></li>
                     </ul>
                   <?php endif; ?>
                 </footer>
@@ -71,7 +71,7 @@
                   <?php if (user_logged_in() && $user['id'] == $current_user['id']): ?>
                     <ul>
                       <li><?= anchor('#', 'Edit'); ?></li>
-                      <li><?= anchor('#', 'Delete'); ?></li>
+                      <li><?= anchor('screencasts/destroy/' . $screencast['id'], 'Delete'); ?></li>
                     </ul>
                   <?php endif; ?>
                 </footer>

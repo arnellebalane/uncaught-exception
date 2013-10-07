@@ -28,4 +28,9 @@
       return $tags->result_array();
     }
 
+    public function untag($tag) {
+      $this->db->where($tag);
+      $this->db->delete('taggable_tags');
+    }
+
   }

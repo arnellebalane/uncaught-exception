@@ -17,4 +17,9 @@
       $this->db->insert('comments', $comment);
     }
 
+    public function destroy($comment) {
+      $this->db->where($comment);
+      $this->db->delete('comments');
+    }
+
   }

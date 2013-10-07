@@ -60,6 +60,11 @@
       }
     }
 
+    public function destroy($id) {
+      $this->screencast->destroy($id);
+      redirect('profile/show');
+    }
+
     public function more() {
       $offset = $this->input->post('offset');
       $sort = $this->input->post('sort');
