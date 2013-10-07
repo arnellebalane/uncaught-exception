@@ -11,6 +11,9 @@
 
     public function create() {
       $comment = $this->input->post();
+      if ($this->_user_logged_in()) {
+        $comment['commentor_id'] = $this->session->userdata('user_id');
+      }
       $this->comment->create($comment);
       if ($comment['commentable_type'] == 'posts') {
         $object = $this->post->find($comment['commentable_id']);
@@ -18,6 +21,10 @@
         $object = $this->screencast->find($comment['commentable_id']);
       }
       redirect($comment['commentable_type'] . '/show/' . $object['slug']);
+    }
+
+    private function _user_logged_in() {
+      return !!$this->session->userdata('user_id');
     }
 
   }
