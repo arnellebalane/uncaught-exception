@@ -44,10 +44,23 @@
             <?php if (!empty($comments)): ?>
               <section id="comments">
                 <?php foreach ($comments as $comment): ?>
+                  <?php 
+
+                    if ($comment['commentor_id'] != null) {
+                      $commentor = $this->user->find($comment['commentor_id']);
+                      $commentor['name'] = fullname($commentor);
+                    } else {
+                      $commentor = array(
+                        'profile_picture' => 'profile-picture.jpg',
+                        'name' => $comment['commentor_name']
+                      );
+                    }
+
+                  ?>
                   <div class="comment">
                     <header class="clearfix">
-                      <?= profile_picture('profile-picture.png'); ?>
-                      <h4><?= $comment['commentor_name'] ?></h4>
+                      <?= profile_picture($commentor['profile_picture']); ?>
+                      <h4><?= $commentor['name']; ?></h4>
                     </header>
 
                     <div class="comment-body">
@@ -63,12 +76,14 @@
                 <div class="field">
                   <textarea name="content" placeholder="Leave a comment..." spellcheck="false"></textarea>
                 </div>
-                <div class="field float-left">
-                  <input type="text" name="commentor_name" placeholder="Your name" autocomplete="off" spellcheck="false" />
-                </div>
-                <div class="field float-right">
-                  <input type="email" name="commentor_email" placeholder="Your email" autocomplete="off" spellcheck="false" />
-                </div>
+                <?php if (!user_logged_in()): ?>
+                  <div class="field float-left">
+                    <input type="text" name="commentor_name" placeholder="Your name" autocomplete="off" spellcheck="false" />
+                  </div>
+                  <div class="field float-right">
+                    <input type="email" name="commentor_email" placeholder="Your email" autocomplete="off" spellcheck="false" />
+                  </div>
+                <?php endif; ?>
                 <div class="field">
                   <input type="hidden" name="commentable_type" value="screencasts" />
                   <input type="hidden" name="commentable_id" value="<?= $screencast['id']; ?>" />
