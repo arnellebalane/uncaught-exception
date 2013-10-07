@@ -109,6 +109,9 @@ var loadMore = {
 
 var screencasts = {
   initialize: function() {
+    $("#video iframe").load(function() {
+      $("#video #loader").hide();
+    });
     $("#video-url").change(function() {
       if ($(this).val().length > 0) {
         screencasts.loadVideo($(this).val());
@@ -120,7 +123,8 @@ var screencasts = {
     screencasts.redirectClick();
   },
   loadVideo: function(url) {
-    $("#video, #loader").show();
+    $("#video").removeClass("hidden");
+    $("#video #loader").show();
     $("#video iframe").hide();
     if (url.match("youtube.com")) {
       var id = url.split("=")[1];
@@ -131,11 +135,11 @@ var screencasts = {
       $("#video-embed-url").val("http://player.vimeo.com/video/" + id + "?title=0&byline=0&portrait=0");
     } else {
       $("#video-embed-url").val("");
-      $("#video, #loader").hide();
+      $("#video").addClass("hidden");
     }
     $("#video iframe").attr("src", $("#video-embed-url").val()).load(function() {
-      $("#video #loader").hide();
       $("#video iframe").show();
+      $("#video #loader").hide();
     });
   },
   redirectClick: function() {

@@ -60,6 +60,37 @@
       }
     }
 
+    public function edit($slug) {
+      $data['screencast'] = $this->screencast->find_by(array('slug' => $slug));
+      $tags = $this->screencast->get_tags($data['screencast']);
+      $data['screencast']['tags'] = array();
+      foreach ($tags as $tag) {
+        array_push($data['screencast']['tags'], $tag['name']);
+      }
+      $data['screencast']['tags'] = implode(', ', $data['screencast']['tags']);
+      $this->load->view('screencasts/edit', $data);
+    }
+
+    public function update() {
+      $screencast = array(
+        'id' => $this->input->post('id'),
+        'title' => $this->input->post('title'),
+        'description' => $this->input->post('description'),
+        'video_url' => $this->input->post('video_url'),
+        'video_embed_url' => $this->input->post('video_embed_url')
+      );
+      $tags = $this->input->post('tags');
+      $screencast = $this->screencast->update($screencast);
+      if (array_key_exists('error', $screencast)) {
+        $this->session->set_flashdata('error', $screencast['error']);
+        redirect('screencasts/edit/' . $screencast['slug']);
+      } else {
+        $this->screencast->retag($screencast, $tags);
+        $this->session->set_flashdata('notice', 'Post updated.');
+        redirect('screencasts/show/' . $screencast['slug']);
+      }
+    }
+
     public function destroy($id) {
       $this->screencast->destroy($id);
       redirect('profile/show');

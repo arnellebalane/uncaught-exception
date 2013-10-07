@@ -13,25 +13,26 @@
       <div class="wrapper">
         <div class="item">
           <div class="main">
-            <div id="video" class="hidden">
-              <iframe width="700" height="420"></iframe>
+            <div id="video">
+              <iframe src="<?= $screencast['video_embed_url']; ?>" width="700" height="420"></iframe>
               <div id="loader"></div>
             </div>
-            <?= form_open('screencasts/create'); ?>
+            <?= form_open('screencasts/update'); ?>
               <div class="field">
-                <input type="text" name="title" placeholder="Title" required />
+                <input type="text" name="title" placeholder="Title" value="<?= $screencast['title']; ?>" required />
               </div>
               <div class="field">
-                <input type="text" name="video_url" placeholder="Video URL" id="video-url" required />
-                <input type="hidden" name="video_embed_url" id="video-embed-url" />
+                <input type="text" name="video_url" placeholder="Video URL" id="video-url" value="<?= $screencast['video_url']; ?>" required />
+                <input type="hidden" name="video_embed_url" id="video-embed-url" value="<?= $screencast['video_embed_url']; ?>" />
               </div>
               <div class="field">
-                <textarea name="description"></textarea>
+                <textarea name="description"><?= $screencast['description']; ?></textarea>
               </div>
               <div class="field">
-                <input type="text" name="tags" placeholder="Tags (comma-separated)" />
+                <input type="text" name="tags" placeholder="Tags (comma-separated)" value="<?= $screencast['tags']; ?>" />
               </div>
               <div class="field">
+                <input type="hidden" name="id" value="<?= $screencast['id']; ?>" />
                 <input type="submit" value="Publish Screencast" />
               </div>
             <?= form_close(); ?>

@@ -48,18 +48,21 @@
   }
 }
 
-.screencasts.make {
+.screencasts.make, .screencasts.edit {
   .main {
     float: none;
     margin: 0 auto;
     padding: 0;
 
     #video {
-      display: none;
       width: 700px;
       height: 420px;
       background-color: #222222;
       position: relative;
+
+      &.hidden {
+        display: none;
+      }
     }
 
     #loader {

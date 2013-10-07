@@ -36,6 +36,19 @@
       return $screencast;
     }
 
+    public function update($screencast_update) {
+      $screencast = $this->find($screencast_update['id']);
+      $screencast_validation = $this->_validate_screencast($screencast_update);
+      if (!$screencast_validation['result']) {
+        $screencast['error'] = $screencast_validation['message'];
+        return $screencast;
+      }
+      $screencast_update['slug'] = $screencast_update['id'] . '-' . url_title($screencast_update['title'], '-', true);
+      $this->db->where('id', $screencast_update['id']);
+      $this->db->update('screencasts', $screencast_update);
+      return $screencast_update;
+    }
+
     public function destroy($id) {
       $this->load->model('like_model', 'like');
       $this->load->model('comment_model', 'comment');
@@ -69,6 +82,37 @@
             $this->db->insert('taggable_tags', $taggable_tag);
           }
         }
+      }
+    }
+
+    public function retag($screencast, $tags) {
+      $current_tags = $this->get_tags($screencast);
+      $current_tags_id = array();
+      foreach ($current_tags as $tag) {
+        $current_tags_id[$tag['id']] = $tag;
+      }
+      if (strlen(trim($tags)) > 0) {
+        $tags = explode(',', $tags);
+        $this->load->model('tag_model', 'tag');
+        foreach ($tags as $t) {
+          $tag = $this->tag->find_by(array('name' => trim($t)));
+          if (empty($tag)) {
+            $tag = $this->tag->create(array('name' => trim($t)));
+          }
+          if ($this->tag->taggable_tagged(array('tag_id' => $tag['id'], 'taggable_id' => $screencast['id'], 'taggable_type' => 'screencasts'))) {
+            unset($current_tags_id[$tag['id']]);
+          } else {
+            $taggable_tag = array(
+              'tag_id' => $tag['id'],
+              'taggable_id' => $screencast['id'],
+              'taggable_type' => 'screencasts'
+            );
+            $this->db->insert('taggable_tags', $taggable_tag);
+          }
+        }
+      }
+      foreach ($current_tags_id as $id => $tag) {
+        $this->tag->untag(array('tag_id' => $id, 'taggable_id' => $screencast['id'], 'taggable_type' => 'screencasts'));
       }
     }
 
