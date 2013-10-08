@@ -1,11 +1,12 @@
 #main-header {
   min-width: 1000px;
   background-color: #333333;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 #main-header nav {
   float: right;
+  margin-top: 12px;
 }
 
 #main-header nav li {
@@ -120,13 +121,27 @@
 }
 
 #logo {
+  float: left;
   display: inline-block;
-  width: 60px;
-  height: 60px;
-  background: url("../images/logo.png") center center no-repeat;
-  background-size: 100% 100%;
-  text-indent: -1000px;
+  height: 36px;
+  background: url("../images/logo v3.png") left center no-repeat;
+  font: normal 3rem/3.8rem "Nyala";
+  color: #BEC8D3;
+  letter-spacing: -1px;
+  background-size: auto 100%;
+  padding-left: 40px;
   overflow: hidden;
+  opacity: 0.5;
+  -webkit-transition: opacity 300ms ease;
+  -moz-transition: opacity 300ms ease;
+  -o-transition: opacity 300ms ease;
+  -ms-transition: opacity 300ms ease;
+  transition: opacity 300ms ease;
+}
+
+#logo:hover,
+#logo:focus {
+  opacity: 0.85;
 }
 
 #posts-filter {

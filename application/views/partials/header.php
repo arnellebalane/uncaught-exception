@@ -1,6 +1,6 @@
 <header id="main-header">
   <div class="wrapper clearfix">
-    <!-- <a href="#" id="logo">Uncaught Exception</a> -->
+    <?= anchor('/../', 'Uncaught Exception', array('id' => 'logo')); ?>
 
     <nav>
       <ul>
