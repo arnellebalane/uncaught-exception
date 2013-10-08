@@ -313,6 +313,7 @@
 }
 
 .main #content code {
+  display: inline-block;
   font: normal 1.3rem "Consolas", "ConsolasRegular";
   background-color: #f8f8f8;
   border: 1px solid #dddddd;
