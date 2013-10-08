@@ -4,7 +4,7 @@
       <li><?= anchor('posts/index', 'Blog'); ?></li>
       <li><?= anchor('screencasts/index', 'Screencasts'); ?></li>
       <li><a href="#">Contact</a></li>
-      <li><a href="#">About</a></li>
+      <li><?= anchor('pages/about', 'About'); ?></li>
     </ul>
 
     <ul class="social-links">
