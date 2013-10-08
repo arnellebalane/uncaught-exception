@@ -17,6 +17,13 @@
   background-color: #4c4c4c;
 }
 
+#load-more.loading {
+  background: #555555 url("../images/loader.gif") center center no-repeat;
+  background-size: 18px 18px;
+  text-indent: -1000px;
+  overflow: hidden;
+}
+
 .items-list {
   margin-top: 30px;
 }

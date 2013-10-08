@@ -37,6 +37,7 @@ var loadMore = {
   initialize: function() {
     $("#load-more").click(function(e) {
       e.preventDefault();
+      $(this).addClass("loading");
       loadMore[$(this).data("type")]();
     });
   },
@@ -52,7 +53,7 @@ var loadMore = {
         response = JSON.parse(response);
         loadMore.appendPosts(response.posts);
         if ($(".item-thumbnail").length == response.total_count) {
-          $("#load-more").hide();
+          $("#load-more").removeClass("loading").hide();
         }
       }
     });
@@ -69,7 +70,7 @@ var loadMore = {
         response = JSON.parse(response);
         loadMore.appendScreencasts(response.screencasts);
         if ($(".item-thumbnail").length == response.total_count) {
-          $("#load-more").hide();
+          $("#load-more").removeClass("oading").hide();
         }
       }
     });
