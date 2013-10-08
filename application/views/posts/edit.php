@@ -30,8 +30,15 @@
 
           <aside class="sidebar">
             <h3>Formatting Guide</h3>
+            <p># h1</p>
+            <p>## h2</p>
+            <p>### h3</p>
             <p>**bold**</p>
-            <p>__italic__</p>
+            <p>_italic_</p>
+            <p>[link text](link_url)</p>
+            <p>![alt text](image_url "image title")</p>
+            <p>`inline code`</p>
+            <p>``` code blocks ```</p>
           </aside>
         </div>
       </div>
