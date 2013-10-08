@@ -31,6 +31,9 @@ var markdown = {
   },
   parse: function(element) {
     element.html(Markdown(element.html()));
+    element.find("code").each(function() {
+      $(this).html("<pre>" + $(this).html() + "</pre>");
+    });
   }
 };
 
