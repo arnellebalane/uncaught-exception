@@ -28,6 +28,19 @@
       return $tags->result_array();
     }
 
+    public function get_tagged($tag, $taggable_type) {
+      $tag = $this->find_by($tag);
+      if (empty($tag)) {
+        return array('result' => false);
+      } else {
+        $this->db->select($taggable_type . '.*');
+        $this->db->where(array('tags.tag_id' => $tag['id'], 'taggable_type' => $taggable_type));
+        $this->db->join('(SELECT * FROM taggable_tags WHERE taggable_type = "' . $taggable_type . '") tags', 'tags.taggable_id = ' . $taggable_type . '.id', 'inner');
+        $taggables = $this->db->get($taggable_type);
+        return $taggables->result_array();
+      }
+    }
+
     public function taggable_tagged($taggable_tag) {
       $this->db->where($taggable_tag);
       $taggable_tag = $this->db->get('taggable_tags');

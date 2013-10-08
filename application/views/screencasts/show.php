@@ -21,7 +21,7 @@
               <h1><?= $screencast['title']; ?></h1>
               <div id="tags">
                 <?php foreach ($tags as $tag): ?>
-                  <?= anchor('#', $tag['name']); ?>
+                  <?= anchor('tags/show/' . rawurlencode($tag['name']), $tag['name']); ?>
                 <?php endforeach; ?>
               </div>
 

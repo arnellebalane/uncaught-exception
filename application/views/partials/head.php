@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/screencasts.css'; ?>" />
 <link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/profile.css'; ?>" />
 <link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/pages.css'; ?>" />
+<link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/tags.css'; ?>" />
 <link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/footer.css'; ?>" />
 <!--
   <script type="text/javascript">

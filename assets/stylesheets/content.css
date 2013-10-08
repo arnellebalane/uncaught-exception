@@ -24,7 +24,7 @@
   overflow: hidden;
 }
 
-.items-list {
+.items-list:first-of-type {
   margin-top: 30px;
 }
 
