@@ -39,7 +39,7 @@
 }
 
 #main-footer p {
-  font: normal 1.1rem "Open Sans";
+  font: normal 1.1rem "Open Sans", "OpenSansRegular";
   color: #555555;
   margin-top: 2px;
 }

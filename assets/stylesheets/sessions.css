@@ -9,7 +9,7 @@
 
 .sessions.make form .error,
 .registrations.make form .error {
-  font: normal 1.4rem "Open Sans";
+  font: normal 1.4rem "Open Sans", "OpenSansRegular";
   color: #aa0000;
   text-align: center;
   margin-bottom: 25px;

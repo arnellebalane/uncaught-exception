@@ -125,7 +125,7 @@
   display: inline-block;
   height: 36px;
   background: url("../images/logo v3.png") left center no-repeat;
-  font: normal 3rem/3.8rem "Nyala";
+  font: normal 3rem/3.8rem "Nyala", "NyalaRegular";
   color: #BEC8D3;
   letter-spacing: -1px;
   background-size: auto 100%;
@@ -157,7 +157,7 @@
 
 #posts-filter a {
   display: block;
-  font: normal 1.2rem "Lato Light";
+  font: normal 1.2rem "Lato Light", "LatoLight";
   color: #555555;
   text-transform: uppercase;
   letter-spacing: -1px;

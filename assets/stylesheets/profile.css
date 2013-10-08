@@ -21,13 +21,13 @@
 }
 
 .profile #user-profile .details h1 {
-  font: normal 2.8rem "Open Sans Light";
+  font: normal 2.8rem "Open Sans Light", "OpenSansLight";
   color: #222222;
 }
 
 .profile #user-profile .details p,
 .profile #user-profile .details h6 {
-  font: normal 1.4rem "Open Sans";
+  font: normal 1.4rem "Open Sans", "OpenSansRegular";
   color: #555555;
   line-height: 1;
   background-color: #E3E8EB;
@@ -66,7 +66,7 @@
   display: inline-block;
   vertical-align: top;
   width: 125px;
-  font: normal 1.3rem "Open Sans Light";
+  font: normal 1.3rem "Open Sans Light", "OpenSansLight";
   color: #aaaaaa;
   text-transform: uppercase;
   margin-top: 5px;
@@ -127,7 +127,7 @@
 }
 
 .profile #user-activities h4 {
-  font: bold 1.2rem "Open Sans";
+  font: bold 1.2rem "Open Sans", "OpenSansRegular";
   color: #555555;
   line-height: 1;
   text-transform: uppercase;
@@ -137,7 +137,7 @@
 
 .profile #user-activities h5 {
   margin: 0 5px;
-  font: normal 1.3rem "Open Sans";
+  font: normal 1.3rem "Open Sans", "OpenSansRegular";
   color: #555555;
   padding: 10px;
   background-color: #E1EAEE;
@@ -159,7 +159,7 @@
 .profile #user-activities .activity a {
   display: block;
   height: 45px;
-  font: normal 1.6rem "Open Sans";
+  font: normal 1.6rem "Open Sans", "OpenSansRegular";
   overflow: hidden;
 }
 
@@ -169,7 +169,7 @@
 
 .profile #user-activities .activity footer time {
   display: inline-block;
-  font: normal 1.3rem "Open Sans";
+  font: normal 1.3rem "Open Sans", "OpenSansRegular";
   color: #777777;
 }
 
@@ -185,7 +185,7 @@
 
 .profile #user-activities .activity footer ul a {
   height: auto;
-  font: normal 1.1rem "Open Sans";
+  font: normal 1.1rem "Open Sans", "OpenSansRegular";
   color: #777777;
   text-transform: uppercase;
 }
@@ -212,7 +212,7 @@
 }
 
 .profile.edit h6 {
-  font: bold 1.3rem "Open Sans";
+  font: bold 1.3rem "Open Sans", "OpenSansRegular";
   color: #333333;
   text-transform: uppercase;
   letter-spacing: -1px;
@@ -247,7 +247,7 @@
   top: 103px;
   left: 50%;
   margin-left: -32px;
-  font: bold 1.1rem "Open Sans";
+  font: bold 1.1rem "Open Sans", "OpenSansRegular";
   color: #555555;
   text-align: center;
   text-transform: uppercase;
@@ -269,7 +269,7 @@
 
 .profile.edit #user-profile input[type="text"] {
   width: 150px;
-  font: bold 1.5rem "Open Sans Light";
+  font: bold 1.5rem "Open Sans Light", "OpenSansLight";
   color: #333333;
   padding: 7px 10px;
   margin-right: 5px;
@@ -278,7 +278,7 @@
 .profile.edit #user-profile textarea {
   width: 495px;
   height: 100px;
-  font: normal 1.4rem "Open Sans";
+  font: normal 1.4rem "Open Sans", "OpenSansRegular";
   color: #555555;
   line-height: 1;
   padding: 15px;
@@ -300,13 +300,13 @@
 .profile.edit #login-settings label {
   display: inline-block;
   width: 122px;
-  font: normal 1.3rem "Open Sans";
+  font: normal 1.3rem "Open Sans", "OpenSansRegular";
   color: #555555;
 }
 
 .profile.edit #login-settings span {
   display: block;
-  font: italic normal 1.2rem "Open Sans";
+  font: italic normal 1.2rem "Open Sans", "OpenSansRegular";
   color: #777777;
 }
 
@@ -364,7 +364,7 @@
 }
 
 .profile.edit .actions input[type="submit"] {
-  font: normal 1.3rem "Open Sans";
+  font: normal 1.3rem "Open Sans", "OpenSansRegular";
   color: #ffffff;
   text-align: center;
   text-transform: uppercase;

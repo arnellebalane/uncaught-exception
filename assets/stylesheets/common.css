@@ -81,7 +81,7 @@ p.notification {
   position: absolute;
   top: -100px;
   left: 50%;
-  font: normal 1.3rem "Open Sans";
+  font: normal 1.3rem "Open Sans", "OpenSansRegular";
   color: #ffffff;
   padding: 8px 12px;
   -webkit-transition-property: top;

@@ -30,3 +30,25 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "ConsolasRegular";
+  src: url("../fonts/Consolas/consolas.eot");
+  src: url("../fonts/Consolas/consolas.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/Consolas/consolas.woff") format("woff"),
+       url("../fonts/Consolas/consolas.ttf") format("truetype"),
+       url("../fonts/Consolas/consolas.svg#Consolas") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NyalaRegular";
+  src: url("../fonts/Nyala/nyala.eot");
+  src: url("../fonts/Nyala/nyala.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/Nyala/nyala.woff") format("woff"),
+       url("../fonts/Nyala/nyala.ttf") format("truetype")
+       url("../fonts/Nyala/nyala.svg#Nyala") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
