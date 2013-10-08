@@ -6,11 +6,13 @@
       <li><?= anchor('pages/about', 'About'); ?></li>
     </ul>
 
-    <ul class="social-links">
-      <li><a href="#" class="link" id="facebook" title="facebook">Facebook</a></li>
-      <li><a href="#" class="link" id="twitter" title="twitter">Twitter</a></li>
-      <li><a href="#" class="link" id="google-plus" title="google+">Google Plus</a></li>
-    </ul>
+    <!--
+      <ul class="social-links">
+        <li><a href="#" class="link" id="facebook" title="facebook">Facebook</a></li>
+        <li><a href="#" class="link" id="twitter" title="twitter">Twitter</a></li>
+        <li><a href="#" class="link" id="google-plus" title="google+">Google Plus</a></li>
+      </ul>
+    -->
 
     <p>Copyright &copy; 2013 Uncaught Exception</p>
   </div>
