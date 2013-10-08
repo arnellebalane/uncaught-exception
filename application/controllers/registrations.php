@@ -38,7 +38,7 @@
       } else {
         $this->session->set_userdata('user_id', $user['id']);
         $this->session->set_flashdata('notice', 'Welcome to Uncaught Exception!');
-        redirect('profile/show/' . $user['id']);
+        redirect('profile/show');
       }
     }
 
