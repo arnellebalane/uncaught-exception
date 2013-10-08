@@ -6,6 +6,7 @@ $(document).ready(function() {
   loadMore.initialize();
   screencasts.initialize();
   profilePicture.initialize();
+  textareas.initialize();
 });
 
 var notifications = {
@@ -177,5 +178,11 @@ var profilePicture = {
     $("#userfile-hook").show();
     $("#cancel-profile-picture").hide();
     $("#userfile").val("")
+  }
+};
+
+var textareas = {
+  initialize: function() {
+    $("textarea").autosize();
   }
 };
