@@ -123,7 +123,7 @@
     }
 
     private function _signed_in_filter() {
-      $actions = array('make', 'create');
+      $actions = array('make', 'create', 'destroy', 'edit', 'update');
       if (in_array($this->route['action_name'], $actions) && !$this->_user_logged_in()) {
         $this->session->set_flashdata('error', 'You must be logged in to view the page.');
         redirect('sessions/make');

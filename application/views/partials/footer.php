@@ -3,7 +3,6 @@
     <ul id="links">
       <li><?= anchor('posts/index', 'Blog'); ?></li>
       <li><?= anchor('screencasts/index', 'Screencasts'); ?></li>
-      <li><a href="#">Contact</a></li>
       <li><?= anchor('pages/about', 'About'); ?></li>
     </ul>
 
