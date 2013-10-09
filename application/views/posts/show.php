@@ -88,7 +88,7 @@
                     <input type="email" name="commentor_email" placeholder="Your email" autocomplete="off" spellcheck="false" />
                   </div>
                 <?php endif; ?>
-                <div class="field">
+                <div class="field clear">
                   <input type="hidden" name="commentable_type" value="posts" />
                   <input type="hidden" name="commentable_id" value="<?= $post['id']; ?>" />
                   <input type="submit" value="Post Comment" />
