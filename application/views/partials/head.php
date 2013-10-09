@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/pages.css'; ?>" />
 <link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/tags.css'; ?>" />
 <link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/footer.css'; ?>" />
+<link rel="icon" type="image/png" href="<?= base_url() . 'assets/images/logo.png'; ?>" />
 <!--
   <script type="text/javascript">
     var less = {
