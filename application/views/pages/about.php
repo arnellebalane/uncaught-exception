@@ -17,7 +17,12 @@
         </section>
         <section>
           <h3>About Me</h3>
-          <p>Hello, I am cool person somebody.</p>
+          <p>Hello, I am Arnelle Balane, a BS Computer Science student at the University of the Philippines Cebu. I have the passion for developing things, mostly on the web, and learning new things that help me improve my skills as a developer.</p>
+        </section>
+        <section>
+          <h3>Special Credits</h3>
+          <p>Original background image courtesy of Julia Menchavez.</p>
+          <img src="<?= base_url() . 'assets/images/background.jpg'; ?>">
         </section>
       </div>
     </div>
