@@ -19,6 +19,7 @@
 
     public function where($post) {
       $this->db->where($post);
+      $this->db->order_by('created_at', 'desc');
       $posts = $this->db->get('posts');
       return $posts->result_array();
     }

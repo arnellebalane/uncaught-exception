@@ -19,6 +19,7 @@
 
     public function where($screencast) {
       $this->db->where($screencast);
+      $this->db->order_by('created_at', 'desc');
       $screencasts = $this->db->get('screencasts');
       return $screencasts->result_array();
     }
