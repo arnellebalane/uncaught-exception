@@ -77,7 +77,6 @@
   margin-top: 30px;
 }
 
-.posts .item,
 .show .item {
   background-color: #333333;
 }
@@ -660,4 +659,41 @@
 .make .links a:focus,
 .edit .links a:focus {
   color: #C84F11;
+}
+
+.make .main,
+.edit .main {
+  float: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.make .main form,
+.edit .main form {
+  padding: 50px;
+}
+
+.make .format-options,
+.edit .format-options {
+  background-color: #555555;
+  position: relative;
+  z-index: 1;
+  font-size: 0;
+}
+
+.make .format-option,
+.edit .format-option {
+  display: inline-block;
+  width: auto;
+  font: normal 1.3rem "Consolas", "ConsolasRegular";
+  color: #aaaaaa;
+  background-color: #434343;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-right: 1px solid #323232;
+}
+
+.make .format-option:hover,
+.edit .format-option:hover {
+  background-color: #323232;
 }

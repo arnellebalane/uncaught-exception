@@ -26,7 +26,8 @@
                 <input type="hidden" name="video_embed_url" id="video-embed-url" />
               </div>
               <div class="field">
-                <textarea name="description"></textarea>
+                <?php $this->load->view('partials/format-options'); ?>
+                <textarea name="description" spellcheck="false" id="textrange"></textarea>
               </div>
               <div class="field">
                 <input type="text" name="tags" placeholder="Tags (comma-separated)" />

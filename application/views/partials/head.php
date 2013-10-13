@@ -32,6 +32,7 @@
 -->
 <script src="<?= base_url() . 'assets/javascripts/js-markdown-extra.js'; ?>"></script>
 <script src="<?= base_url() . 'assets/javascripts/jquery.autosize.js'; ?>"></script>
+<script src="<?= base_url() . 'assets/javascripts/jquery.textrange.js'; ?>"></script>
 <script src="<?= base_url() . 'assets/javascripts/application.js'; ?>"></script>
 <?php if ($action_name == 'show'): ?>
   <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>

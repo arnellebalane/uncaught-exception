@@ -12,34 +12,24 @@
     <div id="content-area">
       <div class="wrapper clearfix">
         <div class="item clearfix">
-          <?= form_open('posts/update', array('class' => 'main')); ?>
-            <div class="field">
-              <input type="text" name="title" placeholder="Title" autocomplete="off" spellcheck="false" value="<?= $post['title']; ?>" required />
-            </div>
-            <div class="field">
-              <textarea name="content" placeholder="" spellcheck="false" required><?= $post['content']; ?></textarea>
-            </div>
-            <div class="field">
-              <input type="text" name="tags" placeholder="Tags (comma-separated)" autocomplete="off" spellcheck="false" value="<?= $post['tags']; ?>" />
-            </div>
-            <div class="field">
-              <input type="hidden" name="id" value="<?= $post['id']; ?>" />
-              <input type="submit" value="Update Post" />
-            </div>
-          <?= form_close(); ?>
-
-          <aside class="sidebar">
-            <h3>Formatting Guide</h3>
-            <p># h1</p>
-            <p>## h2</p>
-            <p>### h3</p>
-            <p>**bold**</p>
-            <p>_italic_</p>
-            <p>[link text](link_url)</p>
-            <p>![alt text](image_url "image title")</p>
-            <p>`inline code`</p>
-            <p>``` code blocks ```</p>
-          </aside>
+          <div class="main">
+            <?= form_open('posts/update', array('class' => 'main')); ?>
+              <div class="field">
+                <input type="text" name="title" placeholder="Title" autocomplete="off" spellcheck="false" value="<?= $post['title']; ?>" required />
+              </div>
+              <div class="field">
+                <?php $this->load->view('partials/format-options'); ?>
+                <textarea name="content" placeholder="" spellcheck="false" id="textrange" required><?= $post['content']; ?></textarea>
+              </div>
+              <div class="field">
+                <input type="text" name="tags" placeholder="Tags (comma-separated)" autocomplete="off" spellcheck="false" value="<?= $post['tags']; ?>" />
+              </div>
+              <div class="field">
+                <input type="hidden" name="id" value="<?= $post['id']; ?>" />
+                <input type="submit" value="Update Post" />
+              </div>
+            <?= form_close(); ?>
+          </div>
         </div>
       </div>
     </div>

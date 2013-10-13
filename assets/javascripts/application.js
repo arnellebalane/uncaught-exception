@@ -187,5 +187,26 @@ var profilePicture = {
 var textareas = {
   initialize: function() {
     $("textarea").autosize();
+    $(".format-option").click(function() {
+      var range = $("textarea#textrange").textrange();
+      var format = $(this).data("format");
+      if (range.length > 0) {
+        if ($(this).data("type") == "format") {
+          var text = format.replace("{text}", range.text);
+        } else if ($(this).data("type") == "link") {
+          if (range.text.match(/(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/)) {
+            var text = format.replace("{url}", range.text);
+          } else {
+            var text = format.replace(/\{(text|title)\}/g, range.text);
+          }
+          if ($(this).text() == "hyperlink") {
+            text = text.replace(/\{text\}/g, "link text").replace(/\{url\}/g, "link url");
+          } else if ($(this).text() == "image") {
+            text = text.replace(/\{text\}/g, "alt text").replace(/\{url\}/g, "image url").replace(/\{title\}/g, "image title");
+          }
+        }
+        $("textarea#textrange").textrange("replace", text);
+      }
+    });
   }
 };

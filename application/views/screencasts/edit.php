@@ -26,7 +26,8 @@
                 <input type="hidden" name="video_embed_url" id="video-embed-url" value="<?= $screencast['video_embed_url']; ?>" />
               </div>
               <div class="field">
-                <textarea name="description"><?= $screencast['description']; ?></textarea>
+                <?= $this->load->view('partials/format-options'); ?>
+                <textarea name="description" spellcheck="false" id="textrange"><?= $screencast['description']; ?></textarea>
               </div>
               <div class="field">
                 <input type="text" name="tags" placeholder="Tags (comma-separated)" value="<?= $screencast['tags']; ?>" />

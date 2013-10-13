@@ -45,13 +45,6 @@
   background: #111111;
 }
 
-.screencasts.make .main,
-.screencasts.edit .main {
-  float: none;
-  margin: 0 auto;
-  padding: 0;
-}
-
 .screencasts.make .main #video,
 .screencasts.edit .main #video {
   width: 700px;
@@ -74,9 +67,4 @@
   bottom: 0;
   background: url("../images/loader.gif") center center no-repeat;
   background-size: 50px 50px;
-}
-
-.screencasts.make .main form,
-.screencasts.edit .main form {
-  padding: 50px;
 }
