@@ -10,7 +10,7 @@
     <?php $this->load->view('partials/header'); ?>
 
     <div id="content-area">
-      <?= form_open('registrations/create'); ?>
+      <form action="#" method="POST" id="registration-form">
         <div class="field">
           <input type="text" name="firstname" placeholder="Firstname" spellcheck="false" autofocus="true" value="<?= restore_value($registration, 'firstname'); ?>" required />
         </div>
@@ -29,13 +29,18 @@
         <div class="field">
           <input type="password" name="password_confirmation" placeholder="Confirm Password" />
         </div>
+        <div class="field" id="mc">
+          <p>Please draw the shape below to submit the form</p>
+          <canvas id="mc-canvas"></canvas>
+      </div>
         <div class="field">
-          <input type="submit" value="Sign Up" />
+          <input type="hidden" id="mc-action" value="<?= site_url('registrations/create'); ?>" />
+          <input type="submit" value="Sign Up" disabled />
         </div>
         <div class="links">
           <p>Already have an account? <?= anchor('sessions/make', 'Sign In'); ?></p>
         </div>
-      <?= form_close(); ?>
+      </form>
     </div>
 
     <div id="footer-placeholder"></div>

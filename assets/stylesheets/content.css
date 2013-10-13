@@ -638,6 +638,11 @@
   background-color: #333333;
 }
 
+.make .field input[type="submit"]:disabled,
+.edit .field input[type="submit"]:disabled {
+  background-color: #555555;
+}
+
 .make .links,
 .edit .links {
   margin-top: 25px;

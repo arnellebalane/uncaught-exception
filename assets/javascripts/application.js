@@ -7,6 +7,7 @@ $(document).ready(function() {
   screencasts.initialize();
   profilePicture.initialize();
   textareas.initialize();
+  captcha.initialize();
 });
 
 var notifications = {
@@ -207,6 +208,15 @@ var textareas = {
         }
         $("textarea#textrange").textrange("replace", text);
       }
+    });
+  }
+};
+
+var captcha = {
+  initialize: function() {
+    $("#registration-form").motionCaptcha({
+      errorMsg: "",
+      successMsg: ""
     });
   }
 };

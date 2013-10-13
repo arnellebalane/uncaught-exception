@@ -1,0 +1,22 @@
+.registrations.make form {
+  margin-top: 50px;
+}
+
+#mc p {
+  font: normal 1.3rem "Open Sans", "OpenSansRegular";
+  color: #555555;
+  margin-bottom: 5px;
+}
+
+#mc-canvas {
+  border: 4px solid transparent;
+  border-radius: 4px;
+}
+
+#mc-canvas.mc-invalid {
+  border-color: #aa4444;
+}
+
+#mc-canvas.mc-valid {
+  border-color: #44aa44;
+}

@@ -6,12 +6,14 @@
 <link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/header.css'; ?>" />
 <link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/content.css'; ?>" />
 <link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/sessions.css'; ?>" />
+<link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/registrations.css'; ?>" />
 <link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/posts.css'; ?>" />
 <link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/screencasts.css'; ?>" />
 <link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/profile.css'; ?>" />
 <link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/pages.css'; ?>" />
 <link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/tags.css'; ?>" />
 <link rel="stylesheet" href="<?= base_url() . 'assets/stylesheets/footer.css'; ?>" />
+<link rel="stylesheet" href="<?= base_url() . 'assets/plugins/motion-captcha/jquery.motionCaptcha.0.2.css' ?>" />
 <link rel="icon" type="image/png" href="<?= base_url() . 'assets/images/logo.png'; ?>" />
 <!--
   <script type="text/javascript">
@@ -30,9 +32,10 @@
 <!--
   <script src="<?= base_url() . 'assets/javascripts/less.js'; ?>"></script>
 -->
-<script src="<?= base_url() . 'assets/javascripts/js-markdown-extra.js'; ?>"></script>
-<script src="<?= base_url() . 'assets/javascripts/jquery.autosize.js'; ?>"></script>
-<script src="<?= base_url() . 'assets/javascripts/jquery.textrange.js'; ?>"></script>
+<script src="<?= base_url() . 'assets/plugins/markdown/js-markdown-extra.js'; ?>"></script>
+<script src="<?= base_url() . 'assets/plugins/autosize/jquery.autosize.js'; ?>"></script>
+<script src="<?= base_url() . 'assets/plugins/textrange/jquery.textrange.js'; ?>"></script>
+<script src="<?= base_url() . 'assets/plugins/motion-captcha/jquery.motionCaptcha.0.2.js'; ?>"></script>
 <script src="<?= base_url() . 'assets/javascripts/application.js'; ?>"></script>
 <?php if ($action_name == 'show'): ?>
   <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
