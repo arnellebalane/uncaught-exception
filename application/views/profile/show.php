@@ -38,9 +38,9 @@
 
         <div id="user-activities">
           <section class="clearfix" >
-            <h4><?= $user['id'] == user_logged_in() && $current_user['id'] ? 'Your' : $user['firstname'] . '\''; ?> Posts</h4>
+            <h4><?= user_logged_in() && $user['id'] == $current_user['id'] ? 'Your' : $user['firstname'] . '\''; ?> Posts</h4>
             <?php if (empty($posts)): ?>
-              <h5><?= $user['id'] == user_logged_in() && $current_user['id'] ? 'You' : $user['firstname'] . '\''; ?> have not posted anything yet.</h5>
+              <h5><?= user_logged_in() && $user['id'] == $current_user['id'] ? 'You' : $user['firstname'] . '\''; ?> have not posted anything yet.</h5>
             <?php endif; ?>
             <?php foreach ($posts as $post): ?>
               <div class="activity">
