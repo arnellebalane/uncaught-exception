@@ -29,6 +29,10 @@
               </aside>
             </div>
           <?php endforeach; ?>
+
+          <?php if (empty($screencasts)): ?>
+            <h2 class="empty-list">No Screencasts Found</h2>
+          <?php endif; ?>
         </div>
 
         <?php if ($has_more): ?>

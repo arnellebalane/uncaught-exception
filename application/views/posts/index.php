@@ -24,6 +24,10 @@
               </footer>
             </div>
           <?php endforeach; ?>
+
+          <?php if (empty($posts)): ?>
+            <h2 class="empty-list">No Posts Found</h2>
+          <?php endif; ?>
         </div>
 
         <?php if ($has_more): ?>
