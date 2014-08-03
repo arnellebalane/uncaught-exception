@@ -1,5 +1,3 @@
-var BASE_URL = "http://localhost/uncaught-exception/index.php/";
-
 $(document).ready(function() {
   notifications.initialize();
   markdown.initialize();

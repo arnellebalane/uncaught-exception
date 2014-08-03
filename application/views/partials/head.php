@@ -28,6 +28,9 @@
     };
   </script>
 -->
+<script>
+  var BASE_URL = '<?= base_url(); ?>';
+</script>
 <script src="<?= base_url() . 'assets/javascripts/jquery-2.js'; ?>"></script>
 <!--
   <script src="<?= base_url() . 'assets/javascripts/less.js'; ?>"></script>
