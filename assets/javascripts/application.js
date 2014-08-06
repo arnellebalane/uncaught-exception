@@ -82,7 +82,7 @@ var loadMore = {
     for (var i = 0; i < posts.length; i++) {
       var post = posts[i];
       var template = "<div class='item-thumbnail'> \
-                        <a href='" + post.url + "' class='title'>" + post.title + "</a> \
+                        <a href='" + post.url + "' class='title'>" + htmlspecialchars(post.title) + "</a> \
                         <footer> \
                           <span class='profile-picture' style='background-image: url(\"" + post.user.profile_picture + "\");'></span> \
                           <a href='" + post.user.url + "'>" + post.user.fullname + "</a> \
@@ -218,3 +218,10 @@ var captcha = {
     });
   }
 };
+
+
+function htmlspecialchars(string) {
+  var escape = document.createElement('textarea');
+  escape.innerHTML = string;
+  return escape.innerHTML;
+}
