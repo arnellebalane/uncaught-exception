@@ -29,7 +29,7 @@
   </script>
 -->
 <script>
-  var BASE_URL = '<?= base_url(); ?>';
+  var BASE_URL = "<?= base_url() . 'index.php/'; ?>";
 </script>
 <script src="<?= base_url() . 'assets/javascripts/jquery-2.js'; ?>"></script>
 <!--
