@@ -44,7 +44,7 @@
             <?php endif; ?>
             <?php foreach ($posts as $post): ?>
               <div class="activity">
-                <?= anchor('posts/show/' . $post['slug'], $post['title']); ?>
+                <?= anchor('posts/show/' . $post['slug'], htmlspecialchars($post['title'])); ?>
                 <footer>
                   <time><?= display_date($post['created_at']); ?></time>
                   <?php if (user_logged_in() && $user['id'] == $current_user['id']): ?>
@@ -65,7 +65,7 @@
             <?php endif; ?>
             <?php foreach ($screencasts as $screencast): ?>
               <div class="activity">
-                <?= anchor('screencasts/show/' . $screencast['slug'], $screencast['title']); ?>
+                <?= anchor('screencasts/show/' . $screencast['slug'], htmlspecialchars($screencast['title'])); ?>
                 <footer class="clearfix">
                   <time><?= display_date($screencast['created_at']); ?></time>
                   <?php if (user_logged_in() && $user['id'] == $current_user['id']): ?>

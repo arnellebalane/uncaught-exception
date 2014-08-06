@@ -14,7 +14,7 @@
         <div class="item clearfix">
           <div class="main">
             <header class="clearfix">
-              <h1><?= $post['title']; ?></h1>
+              <h1><?= htmlspecialchars($post['title']); ?></h1>
               <div id="tags">
                 <?php foreach ($tags as $tag): ?>
                   <?= anchor('tags/show/' . rawurlencode($tag['name']), $tag['name']); ?>
@@ -41,7 +41,7 @@
               </section>
             </header>
 
-            <div id="content" class="markdown"><?= $post['content']; ?></div>
+            <div id="content" class="markdown"><?= htmlspecialchars($post['content']); ?></div>
 
             <?php if (!empty($comments)): ?>
               <section id="comments">
@@ -69,7 +69,7 @@
                       <?php endif; ?>
                     </header>
 
-                    <div class="comment-body"><?= nl2br($comment['content']); ?></div>
+                    <div class="comment-body"><?= nl2br(htmlspecialchars($comment['content'])); ?></div>
                   </div>
                 <?php endforeach; ?>
               </section>
@@ -114,7 +114,7 @@
               <section id="related-items">
                 <h3>Related Posts</h3>
                 <?php foreach ($related_posts as $related_post): ?>
-                  <?= anchor('posts/show/' . $related_post['slug'], $related_post['title']); ?>
+                  <?= anchor('posts/show/' . $related_post['slug'], htmlspecialchars($related_post['title'])); ?>
                 <?php endforeach; ?>
               </section>
             <?php endif; ?>

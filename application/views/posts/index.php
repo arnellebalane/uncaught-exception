@@ -15,7 +15,7 @@
         <div class="items-list clearfix">
           <?php foreach ($posts as $post): ?>
             <div class="item-thumbnail">
-              <?= anchor('posts/show/' . $post['slug'], $post['title'], array('class' => 'title')); ?>
+              <?= anchor('posts/show/' . $post['slug'], htmlspecialchars($post['title']), array('class' => 'title')); ?>
               <footer>
                 <?php $user = $this->post->get_user($post); ?>
                 <?= profile_picture($user['profile_picture']); ?>

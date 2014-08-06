@@ -18,7 +18,7 @@
           </div>
           <div class="main">
             <header class="clearfix">
-              <h1><?= $screencast['title']; ?></h1>
+              <h1><?= htmlspecialchars($screencast['title']); ?></h1>
               <div id="tags">
                 <?php foreach ($tags as $tag): ?>
                   <?= anchor('tags/show/' . rawurlencode($tag['name']), $tag['name']); ?>
@@ -45,7 +45,7 @@
               </section>
             </header>
 
-            <div id="content" class="markdown"><?= $screencast['description']; ?></div>
+            <div id="content" class="markdown"><?= htmlspecialchars($screencast['description']); ?></div>
 
             <?php if (!empty($comments)): ?>
               <section id="comments">
@@ -74,7 +74,7 @@
                     </header>
 
                     <div class="comment-body">
-                      <p><?= nl2br($comment['content']); ?></p>
+                      <p><?= nl2br(htmlspecialchars($comment['content'])); ?></p>
                     </div>
                   </div>
                 <?php endforeach; ?>

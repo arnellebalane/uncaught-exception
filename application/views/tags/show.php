@@ -16,7 +16,7 @@
         <div class="items-list clearfix posts">
           <?php foreach ($posts as $post): ?>
             <div class="item-thumbnail">
-              <?= anchor('posts/show/' . $post['slug'], $post['title'], array('class' => 'title')); ?>
+              <?= anchor('posts/show/' . $post['slug'], htmlspecialchars($post['title']), array('class' => 'title')); ?>
               <footer>
                 <?php $user = $this->post->get_user($post); ?>
                 <?= profile_picture($user['profile_picture']); ?>
@@ -34,7 +34,7 @@
                 <iframe src="<?= $screencast['video_embed_url']; ?>" width="180" height="120"></iframe>
               </div>
               <aside>
-                <?= anchor('screencasts/show/' . $screencast['slug'], $screencast['title'], array('class' => 'title')); ?>
+                <?= anchor('screencasts/show/' . $screencast['slug'], htmlspecialchars($screencast['title']), array('class' => 'title')); ?>
                 <footer>
                   <?php $user = $this->screencast->get_user($screencast); ?>
                   <?= profile_picture($user['profile_picture']); ?>
